@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 django = "*"
+pylint = "*"
+djangorestframework = "*"
+django-environ = "*"
 
 [dev-packages]
 
