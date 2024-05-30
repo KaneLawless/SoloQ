@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'posts',
     'communities',
     'comments',
-    'categories'
+    'categories',
+    'rest_framework_simplejwt'
 ]
 
 MIDDLEWARE = [
@@ -78,6 +79,17 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+from datetime import timedelta
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1)
+}
 
 WSGI_APPLICATION = 'project_soloQ.wsgi.application'
 

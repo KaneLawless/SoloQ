@@ -8,6 +8,7 @@ django = "*"
 pylint = "*"
 djangorestframework = "*"
 django-environ = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 
