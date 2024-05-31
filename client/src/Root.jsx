@@ -4,24 +4,12 @@ import { Outlet } from "react-router-dom"
 
 function Root() {
 
-  const [testData, setTestData] = useState()
-
-  useEffect(() => {
-    async function getData() {
-      try {
-        const data = await axios.get('/api/posts')
-        setTestData(data)
-        console.log(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-
-    getData()
-  }, [])
 
   return (
     <>
+      <h1>
+        HomePage
+      </h1>
       <Outlet />
     </>
   )

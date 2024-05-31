@@ -19,7 +19,6 @@ class PostIndexView(generics.ListCreateAPIView):
 #Read Single, Update, Delete 
 class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
-    # serializer_class = PostSerializer
     permission_classes = [isOwnerOrReadOnly]
     
     def get_serializer_class(self):
