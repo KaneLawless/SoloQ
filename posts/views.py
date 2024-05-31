@@ -3,6 +3,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from .models import Post
 from .serializers.common import PostSerializer
+from .serializers.populated import PopulatedPostSerializer
 from lib.permissions import isOwnerOrReadOnly
 
 # List, Create
@@ -18,8 +19,13 @@ class PostIndexView(generics.ListCreateAPIView):
 #Read Single, Update, Delete 
 class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
-    serializer_class = PostSerializer
+    # serializer_class = PostSerializer
     permission_classes = [isOwnerOrReadOnly]
+    
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return PopulatedPostSerializer
+        return PostSerializer
     
 
 # Show interest (like)
