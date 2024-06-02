@@ -9,6 +9,7 @@ import { jwtDecode } from "jwt-decode";
 import InterestFilled from '../../assets/star-filled.svg'
 import InterestHollow from '../../assets/star-hollow.svg'
 import Comment from '../../assets/comment.svg'
+import LeftNav from "./LeftNav";
 
 
 
@@ -75,7 +76,7 @@ export default function SinglePost() {
     return (
         <Container>
             <Row>
-                <Col></Col>
+                <Col><LeftNav /></Col>
                 {postData &&
                     <Col className="col-6">
                         <Card>
