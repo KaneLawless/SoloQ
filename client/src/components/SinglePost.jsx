@@ -63,6 +63,7 @@ export default function SinglePost() {
                 { headers: { Authorization: `Bearer ${getToken()}` } }
             )
             console.log(res)
+            setCommentInput('')
             getData()
 
         } catch (error) {

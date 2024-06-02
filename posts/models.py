@@ -5,7 +5,7 @@ class Post(models.Model):
     title = models.CharField()
     text = models.TextField()
     image = models.CharField(blank=True, null=True)
-    community = models.ForeignKey('communities.Community', related_name='posts', on_delete=models.CASCADE, blank=True)
+    community = models.ForeignKey('communities.Community', related_name='posts', on_delete=models.CASCADE, blank=True, null=True)
     interests = models.ManyToManyField('users.User',related_name='interested_in', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(
