@@ -2,12 +2,14 @@ import axios from 'axios';
 import { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { setToken } from '../../lib/common';
+import { useNavigate } from 'react-router-dom';
 
 export default function Auth() {
 
     const [show, setShow] = useState(false);
     const [isSignUp, setIsSignUp] = useState(false)
     const [userFound, setUserFound] = useState(false)
+    const navigate = useNavigate()
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -25,6 +27,8 @@ export default function Auth() {
             console.log(data)
             setToken(data.access)
             handleClose()
+            navigate('/')
+
         } catch (error) {
             console.log(error)
         }

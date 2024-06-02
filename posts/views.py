@@ -31,7 +31,7 @@ class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
 class PostInterestView(generics.UpdateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = []
     
     def patch(self, request, pk):
         post = self.get_object()
@@ -43,6 +43,7 @@ class PostInterestView(generics.UpdateAPIView):
             return Response(status=204)
         
         else:
+            print("USER ID: ", request.user)
             post.interests.add(request.user)
             post.save()
             return Response(status=201)

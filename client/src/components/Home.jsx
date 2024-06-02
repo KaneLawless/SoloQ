@@ -17,7 +17,6 @@ export default function Home() {
                 const { data } = await axios.get('/api/posts')
                 setPostData(data)
                 console.log(data)
-                lastUpdated(data[0])
             } catch (error) {
                 console.log(error)
             }
@@ -25,12 +24,6 @@ export default function Home() {
 
         getData()
     }, [])
-
-
-    function lastUpdated(post) {
-        const posted = new Date(post.created_at)
-        return timeAgo(posted)
-    }
 
 
     function clickedPost(e) {
@@ -49,9 +42,9 @@ export default function Home() {
                     {postData &&
                         postData.map((post) => {
                             return (
-                                <Card name={post.id} key={post.id} >
-                                    <Card.Body name={post.id}>
-                                        <Card.Title name={post.id}>{post.community.name} {lastUpdated(post)} {post.owner.username}</Card.Title>
+                                <Card key={post.id} >
+                                    <Card.Body>
+                                        <Card.Title>{post.community.name} {timeAgo(post.created_at)} {post.owner.username}</Card.Title>
                                         <Card.Img onClick={clickedPost} name={post.id} src={post.image}></Card.Img>
                                         <Link onClick={clickedPost} to={`/posts/${post.id}`}>
                                             {post.title}
