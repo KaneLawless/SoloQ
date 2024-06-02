@@ -13,7 +13,7 @@ export default function Navbar() {
             setToggleLogout(true)
             navigate('/')
         } else {
-           
+
         }
     }
 
@@ -22,7 +22,7 @@ export default function Navbar() {
             <nav className="navbar navbar-expand-md header" style={{ background: '#E6E6E6' }}>
                 <div className="container ">
                     <div >
-                        <Link className="navbar-brand" to={isLoggedIn() ? "/home" : '/'}>
+                        <Link className="navbar-brand" to={isLoggedIn() ? "/" : '/'}>
                             <img className="home-logo" src={'#'} alt="Home" />
                         </Link>
                     </div>

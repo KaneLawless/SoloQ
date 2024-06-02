@@ -8,6 +8,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 
 import Root from './Root.jsx'
 import Auth from './components/Auth.jsx'
+import Home from './components/Home.jsx'
+import SinglePost from './components/SinglePost.jsx'
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
       {
         path: 'Auth',
         element: <Auth />
+      },
+      {
+        path: '',
+        element: <Home />
+      },
+      {
+        path: 'posts/:postId',
+        element: <SinglePost />
       }
     ]
   }

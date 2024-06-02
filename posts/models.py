@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Post(models.Model):
+    title = models.CharField()
     text = models.TextField()
     image = models.CharField(blank=True, null=True)
     community = models.ForeignKey('communities.Community', related_name='posts', on_delete=models.CASCADE)
