@@ -18,6 +18,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
     const [postData, setPostData] = useState()
     const [interested, setInterested] = useState()
     const [commentInput, setCommentInput] = useState()
+    const [userId, setUserId] = useState()
     const params = useParams()
     const navigate = useNavigate()
 
@@ -29,7 +30,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
 
             if (isLoggedIn()) {
                 const token = jwtDecode(getToken())
-                console.log(token)
+                setUserId(token.user_id)
                 data.interests.includes(token.user_id) ? setInterested(true) : setInterested(false)
             }
         } catch (error) {
@@ -78,6 +79,8 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
     }
 
     async function DeletePost() {
+        const token = jwtDecode(getToken())
+        if (token.user_id !== postData.owner.id) return
         try {
             await axios.delete(`/api/posts/${params.postId}`, { headers: { Authorization: `Bearer ${getToken()}` } })
             navigate('/')
@@ -92,6 +95,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
 
     }
 
+
     return (
         <Container>
             <Row>
@@ -102,7 +106,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                             <Card.Body>
                                 <Card.Header className="d-flex justify-content-between">
                                     <Card.Text className="flex=grow-1">{postData.owner.username} {timeAgo(postData.created_at)} {postData.community.name}</Card.Text>
-                                    <img src={editing ? Delete : Edit} style={{ width: '4%' }} onClick={clickEdit} />
+                                    {userId === postData.owner.id && <img src={editing ? Delete : Edit} style={{ width: '4%' }} onClick={clickEdit} />}
                                 </Card.Header>
                                 <Card.Title>{editTitle || postData.title}</Card.Title>
                                 <Card.Img src={postData.image} alt='post image'></Card.Img>

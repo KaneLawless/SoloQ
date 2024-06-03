@@ -24,7 +24,6 @@ export default function Auth() {
     async function login() {
         try {
             const { data } = await axios.post('/api/auth/login/', { "email": formData.email, "password": formData.password })
-            console.log(data)
             setToken(data.access)
             handleClose()
             navigate('/')

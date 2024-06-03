@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { getToken } from "../../lib/common"
 import { Container, Form } from "react-bootstrap"
 import SinglePost from "./SinglePost"
-
+import { jwtDecode } from "jwt-decode"
 export default function EditPost() {
 
     const [postData, setPostData] = useState()
@@ -36,6 +36,8 @@ export default function EditPost() {
     }
 
     async function submitChanges() {
+        const token = jwtDecode(getToken())
+        if (postData.owner.id !== token.user_id) return
         try {
             const res = await axios.patch(`/api/posts/${params.postId}/`, formData, { headers: { Authorization: `Bearer ${getToken()}` } })
             console.log(res)
