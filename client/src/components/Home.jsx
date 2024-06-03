@@ -5,6 +5,8 @@ import { timeAgo } from "../../lib/common";
 import { useNavigate, Link } from "react-router-dom";
 import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
+import { RemoveScroll } from 'react-remove-scroll'
+
 
 export default function Home() {
 
@@ -41,13 +43,13 @@ export default function Home() {
     }
 
     return (
-        <Container>
+        <Container >
             {postData && communityData &&
                 <Row>
                     <Col className="text-center">
                         <LeftNav />
                     </Col>
-                    <Col className='col-6 text-center'>
+                    <Col className='col-6 text-center' >
 
                         {postData.map((post) => {
                             return (

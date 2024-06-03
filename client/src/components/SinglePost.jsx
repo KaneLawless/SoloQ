@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import axios from 'axios'
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { getToken, timeAgo, isLoggedIn } from "../../lib/common";
@@ -8,12 +8,19 @@ import { jwtDecode } from "jwt-decode";
 
 import InterestFilled from '../../assets/star-filled.svg'
 import InterestHollow from '../../assets/star-hollow.svg'
+import Edit from '../../assets/edit.svg'
 import Comment from '../../assets/comment.svg'
 import LeftNav from "./LeftNav";
 
+function handleChange(e) {
+    console.log(e.target.id, e.target.value)
+    let value;
+    e.target.id === 'categories' ? value = [e.target.value] : value = e.target.value
+    setFormData({ ...formData, [e.target.id]: value })
+    console.log(formData)
+}
 
-
-export default function SinglePost() {
+export default function SinglePost({ editTitle, editText, editing, submitChanges }) {
 
     const [postData, setPostData] = useState()
     const [interested, setInterested] = useState()
@@ -59,16 +66,20 @@ export default function SinglePost() {
 
 
     async function handleSubmit(e) {
-        try {
-            const res = await axios.post('/api/comments/', { text: commentInput, post: params.postId },
-                { headers: { Authorization: `Bearer ${getToken()}` } }
-            )
-            console.log(res)
-            setCommentInput('')
-            getData()
+        if (editing) {
+            submitChanges()
+        } else {
+            try {
+                const res = await axios.post('/api/comments/', { text: commentInput, post: params.postId },
+                    { headers: { Authorization: `Bearer ${getToken()}` } }
+                )
+                console.log(res)
+                setCommentInput('')
+                getData()
 
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 
@@ -81,10 +92,13 @@ export default function SinglePost() {
                     <Col className="col-6">
                         <Card>
                             <Card.Body>
-                                <Card.Text>{postData.owner.username} {timeAgo(postData.created_at)} {postData.community.name}</Card.Text>
-                                <Card.Title>{postData.title}</Card.Title>
+                                <Card.Header className="d-flex justify-content-between">
+                                    <Card.Text>{postData.owner.username} {timeAgo(postData.created_at)} {postData.community.name}</Card.Text>
+                                    <Link to={`/edit-post/${params.postId}`}><img src={Edit} style={{ width: '4%' }} /></Link>
+                                </Card.Header>
+                                <Card.Title>{editTitle || postData.title}</Card.Title>
                                 <Card.Img src={postData.image} alt='post image'></Card.Img>
-                                <Card.Text>{postData.text}</Card.Text>
+                                {editText || <Card.Text>{postData.text}</Card.Text>}
                                 <div className="d-flex flex-row justify-content-around">
                                     <div onClick={handleInterestClick}>
                                         {isLoggedIn() && <img src={interested ? InterestFilled : InterestHollow} style={{ width: '7%' }} alt='show interest' />}
@@ -97,10 +111,9 @@ export default function SinglePost() {
                         <div>
                             {isLoggedIn() ?
                                 <div className="mb-3">
-                                    <label htmlFor="comment-input" className="form-label"></label>
-                                    <textarea value={commentInput} onChange={handleChange} className="form-control mb-3" id="comment-input" rows="3" placeholder="Add a comment.."></textarea>
+                                    {editing || <textarea value={commentInput} onChange={handleChange} className="form-control mb-3" id="comment-input" rows="3" placeholder="Add a comment.."></textarea>}
                                     <div className="d-flex flex-row justify-content-end">
-                                        <button onClick={handleSubmit}>Post Comment</button>
+                                        <button onClick={handleSubmit}>{editing ? 'Save Post' : 'Post Comment'}</button>
                                     </div>
                                 </div>
                                 : 'Log in to post a comment'}

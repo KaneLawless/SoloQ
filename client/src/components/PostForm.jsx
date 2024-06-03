@@ -37,7 +37,7 @@ export default function PostForm({ communities, categories }) {
         }
     }
 
-
+    
     return (
         <Form onSubmit={sendPost}>
             <Form.Group className="mb-3" controlId='title' value={formData.title} onChange={handleChange} >

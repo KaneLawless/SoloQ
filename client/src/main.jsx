@@ -12,6 +12,7 @@ import Home from './components/Home.jsx'
 import SinglePost from './components/SinglePost.jsx'
 import SingleCommunity from './components/SingleCommunity.jsx'
 import CreatePost from './components/CreatePost.jsx'
+import EditPost from './components/EditPost.jsx'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: 'create-post',
         element: <CreatePost />
+      },
+      {
+        path: 'edit-post/:postId',
+        element: <EditPost />
       }
     ]
   }
