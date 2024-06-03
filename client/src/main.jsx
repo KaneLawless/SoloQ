@@ -11,6 +11,7 @@ import Auth from './components/Auth.jsx'
 import Home from './components/Home.jsx'
 import SinglePost from './components/SinglePost.jsx'
 import SingleCommunity from './components/SingleCommunity.jsx'
+import CreatePost from './components/CreatePost.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: 'Auth',
+        path: 'auth',
         element: <Auth />
       },
       {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: 'communities/:communityId',
         element: <SingleCommunity />
+      },
+      {
+        path: 'create-post',
+        element: <CreatePost />
       }
     ]
   }

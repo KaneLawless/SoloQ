@@ -4,7 +4,7 @@ export default function LeftNav() {
     return (
         <Container className="d-flex flex-column">
             <Button className="mb-3">Create a Community</Button>
-            <Button className="mb-3">Create a Post</Button>
+            <Link to={'/create-post'}><Button className="mb-3">Create a Post</Button></Link>
             <Link className="mb-3">Travel</Link>
             <Link className="mb-3">Gaming</Link>
             <Link className="mb-3">Hobbies</Link>
