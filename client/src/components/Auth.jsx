@@ -11,7 +11,10 @@ export default function Auth() {
     const [userFound, setUserFound] = useState(false)
     const navigate = useNavigate()
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false);
+        navigate('/')
+    }
     const handleShow = () => setShow(true);
 
     const [formData, setFormData] = useState({
