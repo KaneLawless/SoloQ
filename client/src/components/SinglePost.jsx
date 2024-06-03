@@ -95,13 +95,15 @@ export default function SinglePost() {
                             </Card.Body>
                         </Card>
                         <div>
-                            <div className="mb-3">
-                                <label htmlFor="comment-input" className="form-label"></label>
-                                <textarea value={commentInput} onChange={handleChange} className="form-control mb-3" id="comment-input" rows="3" placeholder="Add a comment.."></textarea>
-                                <div className="d-flex flex-row justify-content-end">
-                                    <button onClick={handleSubmit}>Post Comment</button>
+                            {isLoggedIn() ?
+                                <div className="mb-3">
+                                    <label htmlFor="comment-input" className="form-label"></label>
+                                    <textarea value={commentInput} onChange={handleChange} className="form-control mb-3" id="comment-input" rows="3" placeholder="Add a comment.."></textarea>
+                                    <div className="d-flex flex-row justify-content-end">
+                                        <button onClick={handleSubmit}>Post Comment</button>
+                                    </div>
                                 </div>
-                            </div>
+                                : 'Log in to post a comment'}
                             {postData.comments.map((comment) => {
                                 return (
                                     <Card className="mb-2" key={`comment_${comment.id}`}>

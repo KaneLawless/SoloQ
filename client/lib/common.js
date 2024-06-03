@@ -18,6 +18,7 @@ export function isLoggedIn() {
 
     const payloadStr = token.split('.')[1]
     const payloadObj = JSON.parse(atob(payloadStr))
+    console.log(payloadObj)
 
     if (payloadObj.exp > Date.now() / 1000) {
         return true
@@ -28,7 +29,7 @@ export function isLoggedIn() {
 
 export function timeAgo(created_at) {
     const date = new Date(created_at)
-    
+
     const seconds = Math.floor((new Date() - date) / 1000);
 
     const interval = Math.floor(seconds / 31536000);
