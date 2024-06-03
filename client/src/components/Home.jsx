@@ -48,21 +48,21 @@ export default function Home() {
                         <LeftNav />
                     </Col>
                     <Col className='col-6 text-center'>
-                    
+
                         {postData.map((post) => {
                             return (
-                        <Card key={post.id} >
-                            <Card.Body>
-                                <Card.Title>{post.community.name} {timeAgo(post.created_at)} {post.owner.username}</Card.Title>
-                                <Card.Img onClick={clickedPost} name={post.id} src={post.image}></Card.Img>
-                                <Link onClick={clickedPost} to={`/posts/${post.id}`}>
-                                    {post.title}
-                                </Link>
-                            </Card.Body>
-                        </Card>
-                        )
+                                <Card key={post.id} >
+                                    <Card.Body>
+                                        <Card.Title>{post.community.name} {timeAgo(post.created_at)} {post.owner.username}</Card.Title>
+                                        <Card.Img onClick={clickedPost} name={post.id} src={post.image}></Card.Img>
+                                        <Link to={`/posts/${post.id}`}>
+                                            {post.title}
+                                        </Link>
+                                    </Card.Body>
+                                </Card>
+                            )
                         })
-                    }
+                        }
                     </Col>
                     <Col className="text-center">
                         <RightNav communities={communityData} />

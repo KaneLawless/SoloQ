@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
 import { timeAgo } from "../../lib/common";
@@ -9,6 +9,7 @@ import { timeAgo } from "../../lib/common";
 export default function SingleCommunity() {
     const params = useParams()
     const [communityData, setCommunityData] = useState()
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function getData() {
@@ -24,6 +25,12 @@ export default function SingleCommunity() {
         getData()
     }, [])
 
+
+    function clickedPost(e) {
+        console.log(e.target.name)
+        navigate(`/posts/${e.target.name}`)
+    }
+
     return (
         <Container>
             {communityData &&
@@ -35,7 +42,8 @@ export default function SingleCommunity() {
                             return (
                                 <Card key={post.id} className="mb-3">
                                     <Card.Title>{post.owner.username} {timeAgo(post.created_at)}</Card.Title>
-                                    <Card.Img src={post.image} />
+                                    <Card.Img name={post.id} onClick={clickedPost} src={post.image} />
+                                    <Link to={`/posts/${post.id}`}>{post.title}</Link>
                                     <Card.Text>{post.text}</Card.Text>
                                     <Card.Text>{post.categories.map((category) => { return category.name + ' ' })}</Card.Text>
                                 </Card>
