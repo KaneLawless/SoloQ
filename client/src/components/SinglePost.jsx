@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from 'axios'
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Alert } from "react-bootstrap";
 import { getToken, timeAgo, isLoggedIn } from "../../lib/common";
 
 import { jwtDecode } from "jwt-decode";
@@ -9,16 +9,9 @@ import { jwtDecode } from "jwt-decode";
 import InterestFilled from '../../assets/star-filled.svg'
 import InterestHollow from '../../assets/star-hollow.svg'
 import Edit from '../../assets/edit.svg'
+import Delete from '../../assets/delete.svg'
 import Comment from '../../assets/comment.svg'
 import LeftNav from "./LeftNav";
-
-function handleChange(e) {
-    console.log(e.target.id, e.target.value)
-    let value;
-    e.target.id === 'categories' ? value = [e.target.value] : value = e.target.value
-    setFormData({ ...formData, [e.target.id]: value })
-    console.log(formData)
-}
 
 export default function SinglePost({ editTitle, editText, editing, submitChanges }) {
 
@@ -26,6 +19,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
     const [interested, setInterested] = useState()
     const [commentInput, setCommentInput] = useState()
     const params = useParams()
+    const navigate = useNavigate()
 
     async function getData() {
         try {
@@ -83,6 +77,20 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
         }
     }
 
+    async function DeletePost() {
+        try {
+            await axios.delete(`/api/posts/${params.postId}`, { headers: { Authorization: `Bearer ${getToken()}` } })
+            navigate('/')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    function clickEdit() {
+        !editing ? navigate(`/edit-post/${params.postId}`) : DeletePost()
+
+
+    }
 
     return (
         <Container>
@@ -93,8 +101,8 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                         <Card>
                             <Card.Body>
                                 <Card.Header className="d-flex justify-content-between">
-                                    <Card.Text>{postData.owner.username} {timeAgo(postData.created_at)} {postData.community.name}</Card.Text>
-                                    <Link to={`/edit-post/${params.postId}`}><img src={Edit} style={{ width: '4%' }} /></Link>
+                                    <Card.Text className="flex=grow-1">{postData.owner.username} {timeAgo(postData.created_at)} {postData.community.name}</Card.Text>
+                                    <img src={editing ? Delete : Edit} style={{ width: '4%' }} onClick={clickEdit} />
                                 </Card.Header>
                                 <Card.Title>{editTitle || postData.title}</Card.Title>
                                 <Card.Img src={postData.image} alt='post image'></Card.Img>
