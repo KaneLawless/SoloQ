@@ -12,10 +12,12 @@ import Edit from '../../assets/edit.svg'
 import Delete from '../../assets/delete.svg'
 import Comment from '../../assets/comment.svg'
 import LeftNav from "./LeftNav";
+import RightNav from "./RightNav";
 
 export default function SinglePost({ editTitle, editText, editing, submitChanges }) {
 
     const [postData, setPostData] = useState()
+    const [communityData, setCommunityData] = useState()
     const [interested, setInterested] = useState()
     const [commentInput, setCommentInput] = useState()
     const [userId, setUserId] = useState()
@@ -25,7 +27,9 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
     async function getData() {
         try {
             const { data } = await axios.get(`/api/posts/${params.postId}`)
+            const commData = await axios.get(`/api/communities/${data.community.id}`)
             setPostData(data)
+            setCommunityData(commData.data)
             console.log(data)
 
             if (isLoggedIn()) {
@@ -42,7 +46,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
 
         getData()
 
-    }, [])
+    }, [params])
 
     async function handleInterestClick() {
         try {
@@ -91,8 +95,6 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
 
     function clickEdit() {
         !editing ? navigate(`/edit-post/${params.postId}`) : DeletePost()
-
-
     }
 
 
@@ -144,7 +146,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                         </div>
                     </Col>
                 }
-                <Col></Col>
+                <Col>{communityData && <RightNav community={communityData} />}</Col>
             </Row>
         </Container>
     )

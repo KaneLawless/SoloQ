@@ -2,15 +2,34 @@ import axios from "axios"
 
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { ListGroup, Button } from "react-bootstrap"
+import { ListGroup, Button, Row, Container, Col } from "react-bootstrap"
 
 import { getToken } from "../../lib/common"
-import LoadingSpinner from "../subcomponents/LoadingSpinner"
+import LoadingSpinner from "./LoadingSpinner"
+import LeftNav from "./LeftNav"
+import RightNav from "./RightNav"
 
 
-export default function Search() {
+export default function Search({ }) {
 
-    const options = { headers: { 'authorization': getToken() } }
+    const [communityData, setCommunityData] = useState()
+
+    useEffect(() => {
+        async function getData() {
+            try {
+                const { data } = await axios.get('/api/communities/')
+                setCommunityData(data)
+                console.log(data)
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        getData()
+    }, [])
+
+    const options = { headers: { Authorization: `Bearer ${getToken()}` } }
 
     const params = useParams()
     const navigate = useNavigate()
@@ -19,7 +38,8 @@ export default function Search() {
     const [error, setError] = useState()
 
     function handleClick(e) {
-        navigate(`/profile/${e.target.id}`)
+
+        navigate(`/communities/${e.target.id}`)
     }
     // Go back to previous page
     function goBack() {
@@ -30,8 +50,8 @@ export default function Search() {
     useEffect(() => {
         async function getData() {
             try {
-                const { data } = await axios.get(`/api/communities/${params.username}`, options)
-                console.log(params.username)
+                const { data } = await axios.get(`/api/communities/`, options)
+
                 setSearchData(data)
             } catch (error) {
                 console.log(error)
@@ -43,28 +63,33 @@ export default function Search() {
     }, [params])
 
     return (
-        <>
-            <div >
-                {searchData ?
-                    <p style={{ color: "black", textAlign: "center", marginTop: "30px" }}>
-                        Showing results for "{params.username}" ({searchData.length})</p>
-                    : error && <p className="text-danger">{error}</p>
-                }
-                {/*List results*/}
-                <ListGroup className="search-list my-5">
-                    <hr />
-                    {searchData ? searchData.map(user => {
-                        return <ListGroup.Item
-                            key={user._id} style={{ cursor: "pointer" }}
-                            id={user._id} onClick={handleClick}>{user.username}
-                        </ListGroup.Item>
-                    }) :
-                        error ? <p className="error">{error}</p> : <LoadingSpinner />
-                    }
-                    <Button className="search-btn my-4" onClick={goBack}>Back</Button>
 
-                </ListGroup>
-            </div>
-        </>
+        <Container>
+            <Row>
+                <Col><LeftNav /></Col>
+                <Col className="col-6">
+                    {searchData ?
+                        <p style={{ color: "black", textAlign: "center", marginTop: "30px" }}>
+                            Showing results for "{params.query}" ({searchData.length})</p>
+                        : error && <p className="text-danger">{error}</p>
+                    }
+                    <ListGroup className="search-list my-5">
+                        <hr />
+                        {searchData ? searchData.map(community => {
+                            return <ListGroup.Item
+                                key={community.id} style={{ cursor: "pointer" }}
+                                id={community.id} onClick={handleClick}>{community.name}
+                            </ListGroup.Item>
+                        }) :
+                            error ? <p className="error">{error}</p> : <LoadingSpinner />
+                        }
+                        <Button className="search-btn my-4" onClick={goBack}>Back</Button>
+
+                    </ListGroup>
+                </Col>
+                <Col><RightNav /></Col>
+            </Row>
+        </Container>
+
     )
 }

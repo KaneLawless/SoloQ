@@ -16,12 +16,13 @@ export default function Navbar() {
     const [isSignUp, setIsSignUp] = useState(false)
     const [userFound, setUserFound] = useState(false)
 
+    
+    
 
     const handleClose = () => {
         setShow(false);
         setUserFound(false)
         setIsSignUp(false)
-        navigate('/')
     }
     const handleShow = () => setShow(true);
 
@@ -86,10 +87,11 @@ export default function Navbar() {
             setToggleLogout(true)
             navigate('/')
         } else {
-            // navigate('/auth')
             handleShow()
         }
     }
+
+    
     useEffect(() => {
 
     }, [toggleLogout])
