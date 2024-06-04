@@ -1,13 +1,52 @@
 .home-card-title {
     text-decoration: none;
     color: black;
+    text-align: left
+}
 
+.card-image {
+    cursor: pointer
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.comm-card-title {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+}
+
+.comm-cards-nav {
+    margin-bottom: 8px;
+    padding: 4px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.comm-link {
+    text-decoration: none;
+    color: black;
+}
+
+.other-posts-link {
+    text-decoration: none;
+    color: black;
+    padding: 2px;
+    text-align: center;
 }
 
 .edit-button {
     width: 3%;
+    cursor: pointer;
 }
 
 .comment-image {
     width: 5%
+}
+
+.interest-button {
+    width: 7%;
+    cursor: pointer;
 }

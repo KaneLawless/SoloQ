@@ -107,7 +107,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                         <Card>
                             <Card.Body>
                                 <Card.Header className="d-flex justify-content-between align-items-center p-0">
-                                    <Card.Text className="mb-0">{postData.community.name}</Card.Text>
+                                    <Card.Text onClick={() => navigate(`/communities/${postData.community.id}`)} className="mb-0 pointer">{postData.community.name}</Card.Text>
                                     {userId === postData.owner.id ? <img src={editing ? Delete : Edit} className='edit-button' onClick={clickEdit} />
                                         : <p className="mb-1">{postData.owner.username}   {timeAgo(postData.created_at)}</p>}
                                 </Card.Header>
@@ -116,7 +116,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                                 {editText || <Card.Text>{postData.text}</Card.Text>}
                                 <div className="d-flex flex-row justify-content-around">
                                     <div    >
-                                        {isLoggedIn() && <img onClick={handleInterestClick} src={interested ? InterestFilled : InterestHollow} style={{ width: '7%' }} alt='show interest' />}
+                                        {isLoggedIn() && <img onClick={handleInterestClick} src={interested ? InterestFilled : InterestHollow} className='interest-button' alt='show interest' />}
                                     </div>
                                     <div className='d-flex justify-content-end'>
                                         <img src={Comment} alt='comments' className='comment-image' /> &nbsp; {postData.comments.length}

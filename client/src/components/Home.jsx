@@ -55,13 +55,13 @@ export default function Home() {
                                 <Card key={post.id} className='mb-3' >
                                     <Card.Body>
                                         <div className='d-flex justify-content-between'>
-                                            <Card.Text >{post.community.name}</Card.Text>
+                                            <Card.Text onClick={() => navigate(`/communities/${post.community.id}`)} className='pointer' >{post.community.name}</Card.Text>
                                             <Card.Text >{post.owner.username} {timeAgo(post.created_at)} </Card.Text>
                                         </div>
-                                        <Card.Title><Link className='home-card-title' to={`/posts/${post.id}`}>
+                                        <Card.Title className="d-flex"><Link className='home-card-title' to={`/posts/${post.id}`}>
                                             {post.title}
                                         </Link></Card.Title>
-                                        <Card.Img onClick={clickedPost} name={post.id} src={post.image}></Card.Img>
+                                        <Card.Img onClick={clickedPost} name={post.id} src={post.image} className="card-image"></Card.Img>
 
                                     </Card.Body>
                                 </Card>
