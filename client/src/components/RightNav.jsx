@@ -33,7 +33,7 @@ export default function RightNav({ community, communities }) {
 
             {location.pathname.includes('posts') &&
                 <Container>
-                    <h3>Other Posts in {community.name}</h3>
+                    <h3>Other Posts in <span className='pointer text-info' onClick={() => navigate(`/communities/${community.id}`)}>{community.name}</span></h3>
                     {community.posts.map((post) => {
                         return (
                             <Card key={post.id} className="mb-2">

@@ -12,6 +12,7 @@ export default function Home() {
 
     const [postData, setPostData] = useState()
     const [communityData, setCommunitydata] = useState()
+    const [filteredPosts, setFilteredPosts] = useState()
 
     const navigate = useNavigate()
 
@@ -42,26 +43,26 @@ export default function Home() {
     }
 
     return (
-        <Container >
+        <Container className="px-5" >
             {postData && communityData &&
                 <Row>
                     <Col className="text-center">
-                        <LeftNav />
+                        <LeftNav posts={postData} filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts} />
                     </Col>
                     <Col className='col-6 text-center' >
 
-                        {postData.map((post) => {
+                        {(filteredPosts || postData).map((post) => {
                             return (
                                 <Card key={post.id} className='mb-3' >
                                     <Card.Body>
                                         <div className='d-flex justify-content-between'>
-                                            <Card.Text onClick={() => navigate(`/communities/${post.community.id}`)} className='pointer' >{post.community.name}</Card.Text>
+                                            <Card.Text >{post.community.name}</Card.Text>
                                             <Card.Text >{post.owner.username} {timeAgo(post.created_at)} </Card.Text>
                                         </div>
-                                        <Card.Title className="d-flex"><Link className='home-card-title' to={`/posts/${post.id}`}>
+                                        <Card.Title><Link className='home-card-title' to={`/posts/${post.id}`}>
                                             {post.title}
                                         </Link></Card.Title>
-                                        <Card.Img onClick={clickedPost} name={post.id} src={post.image} className="card-image"></Card.Img>
+                                        <Card.Img onClick={clickedPost} name={post.id} src={post.image} className="pointer"></Card.Img>
 
                                     </Card.Body>
                                 </Card>

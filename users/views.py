@@ -25,6 +25,6 @@ class FindUserView(views.APIView):
        email = body['email']
        user = User.objects.filter(email=email)
        if user:
-           return Response({"found": "true"})
+           return Response({"found": "true", "username": user.values('username')[0]['username']})
        else:
            return Response({"found": "false"})

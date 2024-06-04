@@ -15,6 +15,7 @@ export default function Navbar() {
     const [show, setShow] = useState(false);
     const [isSignUp, setIsSignUp] = useState(false)
     const [userFound, setUserFound] = useState(false)
+    const [username, setUsername] = useState()
 
 
 
@@ -77,7 +78,9 @@ export default function Navbar() {
             try {
 
                 const { data } = await axios.post('/api/auth/finduser/', { 'email': formData.email })
+                console.log(data)
                 data.found === 'true' ? setUserFound(true) : setIsSignUp(true)
+                setUsername(data.username)
             } catch (error) {
                 console.log(error)
             }
@@ -117,8 +120,8 @@ export default function Navbar() {
                         <div />
                         <SearchInput />
                         <div className='d-flex'>
-                            <NavLink className="nav-item" to="/profile">Profile</NavLink>
-                            <span type="button" className="nav-item" onClick={handleLogout}>{isLoggedIn() ? 'Logout' : 'Log In / Sign Up'}</span>
+                            <span >{isLoggedIn() && username}</span> &nbsp;&nbsp;&nbsp;
+                            <span type="button" onClick={handleLogout}>{isLoggedIn() ? 'Logout' : 'Log In / Sign Up'}</span>
                         </div>
                         <div />
                     </div>
