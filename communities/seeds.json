@@ -1,0 +1,142 @@
+[
+  {
+    "model": "communities.community",
+    "pk": 1,
+    "fields": {
+      "name": "London, UK"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 2,
+    "fields": {
+      "name": "New York, USA"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 3,
+    "fields": {
+      "name": "Tokyo, Japan"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 4,
+    "fields": {
+      "name": "Paris, France"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 5,
+    "fields": {
+      "name": "Sydney, Australia"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 6,
+    "fields": {
+      "name": "Berlin, Germany"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 7,
+    "fields": {
+      "name": "Moscow, Russia"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 8,
+    "fields": {
+      "name": "Beijing, China"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 9,
+    "fields": {
+      "name": "São Paulo, Brazil"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 10,
+    "fields": {
+      "name": "Mumbai, India"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 11,
+    "fields": {
+      "name": "The Legend of Zelda: Breath of the Wild"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 12,
+    "fields": {
+      "name": "Minecraft"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 13,
+    "fields": {
+      "name": "Fortnite"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 14,
+    "fields": {
+      "name": "Overwatch"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 15,
+    "fields": {
+      "name": "Red Dead Redemption 2"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 16,
+    "fields": {
+      "name": "Grand Theft Auto V"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 17,
+    "fields": {
+      "name": "The Witcher 3: Wild Hunt"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 18,
+    "fields": {
+      "name": "Cyberpunk 2077"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 19,
+    "fields": {
+      "name": "Among Us"
+    }
+  },
+  {
+    "model": "communities.community",
+    "pk": 20,
+    "fields": {
+      "name": "Animal Crossing: New Horizons"
+    }
+  }
+]

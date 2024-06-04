@@ -1,0 +1,212 @@
+[
+  {
+    "model": "comments.comment",
+    "pk": 12,
+    "fields": {
+      "text": "Hey, I'm interested! Where are you based?",
+      "owner": 10,
+      "post": 1,
+      "created_at": "2024-06-04T10:05:36.900Z"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 13,
+    "fields": {
+      "text": "Sounds fun! Free on Fridays and weekends.",
+      "owner": 14,
+      "post": 6,
+      "created_at": "2024-06-03T03:09:27.797635"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 14,
+    "fields": {
+      "text": "I'd love to join! What days are you free?",
+      "owner": 17,
+      "post": 6,
+      "created_at": "2024-06-03T19:23:43.531930"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 15,
+    "fields": {
+      "text": "Count me in! I have some free evenings during the week.",
+      "owner": 16,
+      "post": 8,
+      "created_at": "2024-06-04T11:31:24.133262"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 16,
+    "fields": {
+      "text": "Hey, I'm interested! Where are you based? I usually have free time on weekends.",
+      "owner": 11,
+      "post": 2,
+      "created_at": "2024-06-04T10:11:32.341756"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 17,
+    "fields": {
+      "text": "I'm down! Evenings and weekends work for me.",
+      "owner": 10,
+      "post": 8,
+      "created_at": "2024-06-03T03:49:22.101568"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 18,
+    "fields": {
+      "text": "I'd love to join! What days are you free?",
+      "owner": 14,
+      "post": 8,
+      "created_at": "2024-06-02T16:21:05.567568"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 19,
+    "fields": {
+      "text": "I'm interested! Can play on weekends or after 6 PM on weekdays.",
+      "owner": 12,
+      "post": 6,
+      "created_at": "2024-06-03T18:09:23.286257"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 20,
+    "fields": {
+      "text": "Would love to join! Free most afternoons.",
+      "owner": 18,
+      "post": 10,
+      "created_at": "2024-06-02T12:11:54.141181"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 21,
+    "fields": {
+      "text": "Sounds fun! Free on Fridays and weekends.",
+      "owner": 14,
+      "post": 4,
+      "created_at": "2024-06-03T15:51:19.146133"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 22,
+    "fields": {
+      "text": "I'm interested! Can play on weekends or after 6 PM on weekdays.",
+      "owner": 19,
+      "post": 8,
+      "created_at": "2024-06-04T11:12:06.665180"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 23,
+    "fields": {
+      "text": "Planning a visit from July 3 to July 8. Let's catch up!",
+      "owner": 18,
+      "post": 11,
+      "created_at": "2024-06-02T14:52:06.664134"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 24,
+    "fields": {
+      "text": "In town from July 1 to July 5. Let's get together!",
+      "owner": 12,
+      "post": 12,
+      "created_at": "2024-06-03T07:52:18.805969"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 25,
+    "fields": {
+      "text": "In town from July 1 to July 5. Let's get together!",
+      "owner": 11,
+      "post": 13,
+      "created_at": "2024-06-03T17:05:43.780882"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 26,
+    "fields": {
+      "text": "I'll be in town from June 18 to June 22. Let's meet up!",
+      "owner": 15,
+      "post": 14,
+      "created_at": "2024-06-03T02:14:00.591208"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 27,
+    "fields": {
+      "text": "In the area from June 15 to June 20. Let's hang out!",
+      "owner": 20,
+      "post": 15,
+      "created_at": "2024-06-03T18:20:59.882726"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 28,
+    "fields": {
+      "text": "In the city from June 25 to June 30. Let's do something fun!",
+      "owner": 13,
+      "post": 16,
+      "created_at": "2024-06-02T12:36:27.829020"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 29,
+    "fields": {
+      "text": "Visiting from July 10 to July 15. Hope to see you!",
+      "owner": 13,
+      "post": 17,
+      "created_at": "2024-06-03T09:37:57.411817"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 30,
+    "fields": {
+      "text": "Visiting from June 28 to July 3. Hope to see you!",
+      "owner": 12,
+      "post": 18,
+      "created_at": "2024-06-03T17:14:05.193449"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 31,
+    "fields": {
+      "text": "In town from July 1 to July 5. Let's get together!",
+      "owner": 11,
+      "post": 19,
+      "created_at": "2024-06-02T16:10:40.925736"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 32,
+    "fields": {
+      "text": "In the area from June 15 to June 20. Let's hang out!",
+      "owner": 20,
+      "post": 20,
+      "created_at": "2024-06-03T09:41:43.215018"
+    }
+  }
+]

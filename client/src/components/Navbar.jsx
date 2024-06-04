@@ -16,14 +16,15 @@ export default function Navbar() {
     const [isSignUp, setIsSignUp] = useState(false)
     const [userFound, setUserFound] = useState(false)
 
-    
-    
+
+
 
     const handleClose = () => {
         setShow(false);
         setUserFound(false)
         setIsSignUp(false)
     }
+
     const handleShow = () => setShow(true);
 
     const [formData, setFormData] = useState({
@@ -60,7 +61,13 @@ export default function Navbar() {
 
 
 
-    async function handleContinue() {
+    async function handleContinue(e) {
+
+        if (!userFound && !isSignUp) {
+            console.log("submitting form")
+            e.preventDefault()
+        }
+
         if (userFound) {
             login()
         } else if (isSignUp) {
@@ -68,6 +75,7 @@ export default function Navbar() {
         } else {
             console.log('Searching for user')
             try {
+
                 const { data } = await axios.post('/api/auth/finduser/', { 'email': formData.email })
                 data.found === 'true' ? setUserFound(true) : setIsSignUp(true)
             } catch (error) {
@@ -91,7 +99,7 @@ export default function Navbar() {
         }
     }
 
-    
+
     useEffect(() => {
 
     }, [toggleLogout])
@@ -121,7 +129,7 @@ export default function Navbar() {
                 <Modal.Header closeButton>
                     <Modal.Title>Login/Register</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body onSubmit={handleContinue}>
                     <Form>
                         <Form.Group className="mb-3" controlId="email" value={formData.email} onChange={handleChange}>
                             <Form.Label>Email address</Form.Label>
@@ -168,9 +176,9 @@ export default function Navbar() {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    {/* <Button variant="secondary" onClick={handleClose}>
                         Back
-                    </Button>
+                    </Button> */}
                     <Button variant="primary" onClick={handleContinue}>
                         Continue
                     </Button>

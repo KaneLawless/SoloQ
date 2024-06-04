@@ -1,0 +1,494 @@
+[
+  {
+    "model": "posts.post",
+    "pk": 1,
+    "fields": {
+      "title": "Looking for a weekly Tennis partner!",
+      "text": "I've just recently moved to the city and don't know many people. I'm a keen tennis player and would love to find someone to play regularly with. Please let me know if you're interested!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717495144/project-3/zybfo4t2gpuuzlostsaq.png",
+      "community": 1,
+      "created_at": "2024-06-04T09:59:07.104Z",
+      "owner": 1,
+      "interests": [
+        10
+      ],
+      "categories": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 2,
+    "fields": {
+      "title": "Anyone up for a hiking buddy?",
+      "text": "I'm looking for someone who enjoys hiking and would like to explore the local trails with me on weekends.",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717502400/istockphoto-1800455398-612x612_pkgqfi.jpg",
+      "community": 2,
+      "created_at": "2024-06-02T10:15:07.104Z",
+      "owner": 11,
+      "interests": [],
+      "categories": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 3,
+    "fields": {
+      "title": "Chess partner wanted!",
+      "text": "I love playing chess and I'm searching for a partner to play with regularly. Let's have some fun and challenging games.",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717502393/istockphoto-1285213899-612x612_mwlmyf.jpg",
+      "community": 3,
+      "created_at": "2024-06-04T08:45:07.104Z",
+      "owner": 12,
+      "interests": [],
+      "categories": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 4,
+    "fields": {
+      "title": "Looking for a gym buddy!",
+      "text": "I've been hitting the gym lately and it would be great to have a buddy to work out with. Anyone interested?",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717502399/istockphoto-1791125697-612x612_mvlq9e.jpg",
+      "community": 4,
+      "created_at": "2024-06-01T16:00:07.104Z",
+      "owner": 13,
+      "interests": [],
+      "categories": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 5,
+    "fields": {
+      "title": "Cycling partner wanted!",
+      "text": "I'm an avid cyclist looking for a partner to join me on weekend rides around the city and beyond. Let's ride together!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717502399/istockphoto-1792120055-612x612_lrcaum.jpg",
+      "community": 5,
+      "created_at": "2024-06-04T07:30:07.104Z",
+      "owner": 14,
+      "interests": [],
+      "categories": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 6,
+    "fields": {
+      "title": "Looking for a photography buddy!",
+      "text": "I'm passionate about photography and looking for someone to join me in exploring the city and capturing some amazing shots.",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717502393/istockphoto-175490099-612x612_tmspr9.jpg",
+      "community": 6,
+      "created_at": "2024-06-03T12:45:07.104Z",
+      "owner": 15,
+      "interests": [],
+      "categories": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 7,
+    "fields": {
+      "title": "Running partner needed!",
+      "text": "I run every morning and am looking for someone to join me. Let's stay fit together and enjoy the morning runs.",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717502393/istockphoto-1339845128-612x612_r243hh.jpg",
+      "community": 7,
+      "created_at": "2024-06-02T06:30:07.104Z",
+      "owner": 16,
+      "interests": [],
+      "categories": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 8,
+    "fields": {
+      "title": "Book club formation!",
+      "text": "I'm looking to form a book club with fellow book lovers. Let's meet once a week and discuss our favorite reads.",
+      "image": "",
+      "community": 8,
+      "created_at": "2024-06-04T09:00:07.104Z",
+      "owner": 17,
+      "interests": [],
+      "categories": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 9,
+    "fields": {
+      "title": "Badminton partner wanted!",
+      "text": "I'm searching for someone to play badminton with on weekends. It's a great way to stay active and have fun!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717502393/istockphoto-1499854033-612x612_xegcdv.jpg ",
+      "community": 9,
+      "created_at": "2024-06-01T11:15:07.104Z",
+      "owner": 18,
+      "interests": [],
+      "categories": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 10,
+    "fields": {
+      "title": "Anyone interested in painting?",
+      "text": "I enjoy painting as a hobby and would love to find someone to share ideas and paint with. Let's get creative together!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717502393/istockphoto-1737433770-612x612_wcs0as.jpg",
+      "community": 10,
+      "created_at": "2024-06-03T15:30:07.104Z",
+      "owner": 19,
+      "interests": [],
+      "categories": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 11,
+    "fields": {
+      "title": "Looking for a travel buddy to explore London!",
+      "text": "Hi, I'm Alex, a 25-year-old travel enthusiast. I'll be visiting London from June 10th to June 20th and would love to have a travel companion to explore the hidden gems of the city. If you're up for an adventure, let's connect!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717501995/istockphoto-1959948143-612x612_pruiiw.jpg",
+      "community": 1,
+      "created_at": "2024-06-02T14:30:07.104Z",
+      "owner": 10,
+      "interests": [],
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 12,
+    "fields": {
+      "title": "Discovering NYC with a travel buddy!",
+      "text": "Hey there, I'm Jamie, a 28-year-old food lover and urban explorer. I'll be in New York City from July 5th to July 15th. Looking for someone to join me in exploring the iconic sites and hidden spots. Let's have an unforgettable time together!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717501995/istockphoto-1960006058-640x640_yepxqf.jpg",
+      "community": 2,
+      "created_at": "2024-06-03T10:15:07.104Z",
+      "owner": 11,
+      "interests": [],
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 13,
+    "fields": {
+      "title": "Exploring Tokyo with a fellow traveler!",
+      "text": "Hi, I'm Sam, a 30-year-old tech enthusiast. I'll be in Tokyo from June 20th to June 30th. Seeking a travel buddy to share the experience and explore the culture together. Let's enjoy Tokyo's vibrant life!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717501995/istockphoto-1756293740-612x612_biqhpi.jpg",
+      "community": 3,
+      "created_at": "2024-06-04T08:45:07.104Z",
+      "owner": 12,
+      "interests": [],
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 14,
+    "fields": {
+      "title": "Travel buddy for a Paris adventure!",
+      "text": "Bonjour! I'm Emma, a 27-year-old art lover. I'll be in Paris from July 1st to July 10th. Looking for a companion to explore the romantic and historic sites. If you're interested in art, history, and great food, let's go!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717501995/istockphoto-1417867217-612x612_k8uoe1.jpg",
+      "community": 4,
+      "created_at": "2024-06-01T16:00:07.104Z",
+      "owner": 13,
+      "interests": [],
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 15,
+    "fields": {
+      "title": "Travel buddy for a Sydney trip!",
+      "text": "G'day! I'm Chris, a 29-year-old nature enthusiast. I'll be in Sydney from June 15th to June 25th. Looking for someone to join me in exploring the beaches, the Opera House, and other amazing attractions. Let's have a blast!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717501995/istockphoto-1005076050-612x612_vndrfi.jpg",
+      "community": 5,
+      "created_at": "2024-06-04T07:30:07.104Z",
+      "owner": 14,
+      "interests": [],
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 16,
+    "fields": {
+      "title": "Exploring Berlin with a travel companion!",
+      "text": "Hallo! I'm Lisa, a 26-year-old history buff. I'll be visiting Berlin from July 5th to July 15th. Would love a travel buddy to explore the city's history, art scene, and nightlife. Join me for a memorable trip!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717501995/istockphoto-2150736121-612x612_ck34c7.jpg",
+      "community": 6,
+      "created_at": "2024-06-03T12:45:07.104Z",
+      "owner": 15,
+      "interests": [],
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 17,
+    "fields": {
+      "title": "Adventure in Moscow!",
+      "text": "Привет! I'm Ivan, a 32-year-old adventure seeker. I'll be in Moscow from June 10th to June 20th. Looking for a fun travel buddy to discover the rich history and vibrant culture together. Let's explore Moscow!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717501995/istockphoto-1500571419-612x612_kvh6be.jpg",
+      "community": 7,
+      "created_at": "2024-06-02T06:30:07.104Z",
+      "owner": 16,
+      "interests": [],
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 18,
+    "fields": {
+      "title": "Exploring Beijing with a travel buddy!",
+      "text": "你好! I'm Mei, a 24-year-old foodie and culture enthusiast. I'll be in Beijing from July 1st to July 10th. Looking for someone to join me in exploring the historic and modern wonders of the city. Let's have an amazing time!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717501995/istockphoto-1173484312-612x612_gteqpv.jpg",
+      "community": 8,
+      "created_at": "2024-06-04T09:00:07.104Z",
+      "owner": 17,
+      "interests": [],
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 19,
+    "fields": {
+      "title": "Discovering São Paulo with a travel buddy!",
+      "text": "Olá! I'm Lucas, a 28-year-old music and dance lover. I'll be visiting São Paulo from June 20th to June 30th. Looking for a travel companion to explore the vibrant culture, food, and nightlife. Let's enjoy São Paulo!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717501994/istockphoto-1341927061-612x612_z5wj6a.jpg",
+      "community": 9,
+      "created_at": "2024-06-01T11:15:07.104Z",
+      "owner": 18,
+      "interests": [],
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 20,
+    "fields": {
+      "title": "Exploring Mumbai together!",
+      "text": "Namaste! I'm Priya, a 25-year-old street food lover. I'll be in Mumbai from July 10th to July 20th. Looking for a fellow traveler to explore the bustling city, rich history, and amazing street food. Let's go!",
+      "image": "https://res.cloudinary.com/dqd6xut7b/image/upload/v1717501994/istockphoto-1194684380-640x640_u8fssf.jpg",
+      "community": 10,
+      "created_at": "2024-06-03T15:30:07.104Z",
+      "owner": 19,
+      "interests": [],
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 21,
+    "fields": {
+      "title": "Looking for a fellow adventurer in Hyrule!",
+      "text": "As an amnesiac hero, I seek companions to explore the vast world of Hyrule. Let's uncover ancient secrets, defeat monsters, and save Princess Zelda!",
+      "image": "",
+      "community": 11,
+      "created_at": "2024-06-03T14:30:00.000Z",
+      "owner": 17,
+      "interests": [],
+      "categories": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 22,
+    "fields": {
+      "title": "Looking for Minecraft buddies!",
+      "text": "New to the blocky world of Minecraft! Seeking fellow players to explore, build, and survive together. Let's mine those diamonds!",
+      "image": "",
+      "community": 12,
+      "created_at": "2024-06-02T18:45:00.000Z",
+      "owner": 14,
+      "interests": [],
+      "categories": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 23,
+    "fields": {
+      "title": "Victory Royale! Seeking Fortnite squadmates.",
+      "text": "Ready to drop into the battle royale? Let's build, loot, and secure that Victory Royale together! Mic required.",
+      "image": "",
+      "community": 13,
+      "created_at": "2024-06-01T21:15:00.000Z",
+      "owner": 19,
+      "interests": [],
+      "categories": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 24,
+    "fields": {
+      "title": "Overwatch heroes assemble!",
+      "text": "Calling all support mains, DPS enthusiasts, and tank aficionados! Let's group up and push the payload to victory.",
+      "image": "",
+      "community": 14,
+      "created_at": "2024-06-01T09:30:00.000Z",
+      "owner": 12,
+      "interests": [],
+      "categories": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 25,
+    "fields": {
+      "title": "Riding into the sunset in Red Dead Redemption 2",
+      "text": "Looking for fellow outlaws to roam the Wild West. Whether it's hunting bounties, playing poker, or just enjoying the scenery, let's saddle up!",
+      "image": "",
+      "community": 15,
+      "created_at": "2024-05-31T17:20:00.000Z",
+      "owner": 18,
+      "interests": [],
+      "categories": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 26,
+    "fields": {
+      "title": "Heists and chaos in Los Santos (GTA V)",
+      "text": "Seeking crew members for epic heists, races, and general mayhem in the sprawling city of Los Santos. Must have a sense of humor and a fast car!",
+      "image": "",
+      "community": 16,
+      "created_at": "2024-05-30T22:10:00.000Z",
+      "owner": 20,
+      "interests": [],
+      "categories": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 27,
+    "fields": {
+      "title": "Witcher Contracts and Monster Hunts",
+      "text": "Calling all witchers and monster slayers! Let's track down griffins, drowners, and other foul creatures. Payment in crowns or rare alchemical ingredients.",
+      "image": "",
+      "community": 17,
+      "created_at": "2024-05-30T10:00:00.000Z",
+      "owner": 15,
+      "interests": [],
+      "categories": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 28,
+    "fields": {
+      "title": "Night City Adventures (Cyberpunk 2077)",
+      "text": "Exploring the neon-lit streets of Night City? Seeking edgerunners for gigs, cyber-enhancements, and maybe a run-in with Johnny Silverhand.",
+      "image": "",
+      "community": 18,
+      "created_at": "2024-05-29T16:20:00.000Z",
+      "owner": 11,
+      "interests": [],
+      "categories": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 29,
+    "fields": {
+      "title": "Among Us Impostors Unite!",
+      "text": "Sus or crewmate? Let's sabotage tasks, vent, and figure out who's the impostor. Trust no one!",
+      "image": "",
+      "community": 19,
+      "created_at": "2024-05-28T22:45:00.000Z",
+      "owner": 13,
+      "interests": [],
+      "categories": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "posts.post",
+    "pk": 30,
+    "fields": {
+      "title": "Island Life in Animal Crossing",
+      "text": "Looking for fellow villagers to fish, catch bugs, and decorate our cozy islands. Turnip prices and KK Slider concerts included!",
+      "image": "",
+      "community": 20,
+      "created_at": "2024-05-28T09:10:00.000Z",
+      "owner": 16,
+      "interests": [],
+      "categories": [
+        2,
+        5
+      ]
+    }
+  }
+]
