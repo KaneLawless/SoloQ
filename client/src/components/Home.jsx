@@ -5,7 +5,6 @@ import { timeAgo } from "../../lib/common";
 import { useNavigate, Link } from "react-router-dom";
 import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
-import { RemoveScroll } from 'react-remove-scroll'
 
 
 export default function Home() {
@@ -53,13 +52,17 @@ export default function Home() {
 
                         {postData.map((post) => {
                             return (
-                                <Card key={post.id} >
+                                <Card key={post.id} className='mb-3' >
                                     <Card.Body>
-                                        <Card.Title>{post.community.name} {timeAgo(post.created_at)} {post.owner.username}</Card.Title>
-                                        <Card.Img onClick={clickedPost} name={post.id} src={post.image}></Card.Img>
-                                        <Link to={`/posts/${post.id}`}>
+                                        <div className='d-flex justify-content-between'>
+                                            <Card.Text >{post.community.name}</Card.Text>
+                                            <Card.Text >{post.owner.username} {timeAgo(post.created_at)} </Card.Text>
+                                        </div>
+                                        <Card.Title><Link className='home-card-title' to={`/posts/${post.id}`}>
                                             {post.title}
-                                        </Link>
+                                        </Link></Card.Title>
+                                        <Card.Img onClick={clickedPost} name={post.id} src={post.image}></Card.Img>
+
                                     </Card.Body>
                                 </Card>
                             )

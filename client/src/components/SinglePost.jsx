@@ -106,35 +106,33 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                     <Col className="col-6">
                         <Card>
                             <Card.Body>
-                                <Card.Header className="d-flex justify-content-between">
-                                    <Card.Text className="flex=grow-1">{postData.owner.username} {timeAgo(postData.created_at)} {postData.community.name}</Card.Text>
-                                    {userId === postData.owner.id && <img src={editing ? Delete : Edit} style={{ width: '4%' }} onClick={clickEdit} />}
+                                <Card.Header className="d-flex justify-content-between align-items-center p-0">
+                                    <Card.Text className="mb-0">{postData.community.name}</Card.Text>
+                                    {userId === postData.owner.id ? <img src={editing ? Delete : Edit} className='edit-button' onClick={clickEdit} />
+                                        : <p className="mb-1">{postData.owner.username}   {timeAgo(postData.created_at)}</p>}
                                 </Card.Header>
-                                <Card.Title>{editTitle || postData.title}</Card.Title>
-                                <Card.Img src={postData.image} alt='post image'></Card.Img>
+                                <Card.Title className='my-3'>{editTitle || postData.title}</Card.Title>
+                                <Card.Img src={postData.image} alt='post image' className="mb-2"></Card.Img>
                                 {editText || <Card.Text>{postData.text}</Card.Text>}
                                 <div className="d-flex flex-row justify-content-around">
-                                    <div onClick={handleInterestClick}>
-                                        {isLoggedIn() && <img src={interested ? InterestFilled : InterestHollow} style={{ width: '7%' }} alt='show interest' />}
+                                    <div    >
+                                        {isLoggedIn() && <img onClick={handleInterestClick} src={interested ? InterestFilled : InterestHollow} style={{ width: '7%' }} alt='show interest' />}
                                     </div>
-                                    <img src={Comment} alt='comments' style={{ width: '5%' }} /> {postData.comments.length}
-
+                                    <div className='d-flex justify-content-end'>
+                                        <img src={Comment} alt='comments' className='comment-image' /> &nbsp; {postData.comments.length}
+                                    </div>
                                 </div>
                             </Card.Body>
                         </Card>
-                        <div>
-                            {isLoggedIn() ?
-                                <div className="mb-3">
-                                    {editing || <textarea value={commentInput} onChange={handleChange} className="form-control mb-3" id="comment-input" rows="3" placeholder="Add a comment.."></textarea>}
-                                    <div className="d-flex flex-row justify-content-end">
-                                        <button onClick={handleSubmit}>{editing ? 'Save Post' : 'Post Comment'}</button>
-                                    </div>
-                                </div>
-                                : 'Log in to post a comment'}
+                        <div className="mt-2">
+
                             {postData.comments.map((comment) => {
                                 return (
                                     <Card className="mb-2" key={`comment_${comment.id}`}>
-                                        <Card.Title>{comment.owner.username} <small>{timeAgo(comment.created_at)}</small></Card.Title>
+                                        <div className="d-flex align-items-center justify-content-between">
+                                            <small className="px-3 pt-1 fw-bold">{comment.owner.username} </small>
+                                            <small className="px-2">{timeAgo(comment.created_at)}</small>
+                                        </div>
                                         <Card.Body>
                                             {comment.text}
                                         </Card.Body>
@@ -144,6 +142,14 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                             }
 
                         </div>
+                        {isLoggedIn() ?
+                            <div className="mb-3">
+                                {editing || <textarea value={commentInput} onChange={handleChange} className="form-control mb-3" id="comment-input" rows="3" placeholder="Add a comment.."></textarea>}
+                                <div className="d-flex flex-row justify-content-end">
+                                    <button onClick={handleSubmit}>{editing ? 'Save Post' : 'Post Comment'}</button>
+                                </div>
+                            </div>
+                            : 'Log in to post a comment'}
                     </Col>
                 }
                 <Col>{communityData && <RightNav community={communityData} />}</Col>

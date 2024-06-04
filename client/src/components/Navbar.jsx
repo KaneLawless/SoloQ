@@ -106,7 +106,7 @@ export default function Navbar() {
 
     return (
         <>
-            <header>
+            <header className='mb-3'>
                 <nav className="navbar navbar-expand-md header" style={{ background: '#E6E6E6' }}>
                     <div className="container ">
                         <div >

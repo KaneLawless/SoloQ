@@ -75,3 +75,8 @@ export function timeAgo(created_at) {
 
     return "just now";
 }
+
+
+export function resizeImage(image){
+    
+}
