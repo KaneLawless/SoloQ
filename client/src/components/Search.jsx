@@ -10,24 +10,9 @@ import LeftNav from "./LeftNav"
 import RightNav from "./RightNav"
 
 
-export default function Search({ }) {
+export default function Search() {
 
-    const [communityData, setCommunityData] = useState()
 
-    useEffect(() => {
-        async function getData() {
-            try {
-                const { data } = await axios.get('/api/communities/')
-                setCommunityData(data)
-                console.log(data)
-
-            } catch (error) {
-                console.log(error)
-            }
-        }
-
-        getData()
-    }, [])
 
     const options = { headers: { Authorization: `Bearer ${getToken()}` } }
 
@@ -50,9 +35,9 @@ export default function Search({ }) {
     useEffect(() => {
         async function getData() {
             try {
-                const { data } = await axios.get(`/api/communities/`, options)
-
-                setSearchData(data)
+                const { data } = await axios.get(`/api/communities/`)
+                const filtered = data.filter((community) => community.name.toLowerCase().includes(params.query))
+                setSearchData(filtered)
             } catch (error) {
                 console.log(error)
                 setError(error.message)
