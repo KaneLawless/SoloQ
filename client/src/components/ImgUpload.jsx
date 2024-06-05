@@ -1,8 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
-import { Form, Button } from "react-bootstrap"
+import { Form } from "react-bootstrap"
 import LoadingSpinner from "./LoadingSpinner"
-import Resizer from 'react-image-file-resizer'
 
 export default function ImgUpload({ formData, setFormData, sendPost }) {
 
@@ -18,12 +17,9 @@ export default function ImgUpload({ formData, setFormData, sendPost }) {
 
         try {
             setUploading(true)
-            //const resizedFile = await resizeFile(e.target.files[0])
             const form = new FormData()
-            //console.log(resizedFile)
             console.log(e.target.files[0])
             form.append('file', e.target.files[0])
-            //form.append('file', resizedFile)
             form.append('upload_preset', uploadPreset)
             const { data } = await axios.post(uploadUrl, form)
             console.log(data.secure_url)

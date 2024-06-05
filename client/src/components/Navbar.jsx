@@ -1,16 +1,17 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { getUsername, isLoggedIn, removeToken, removeUsername, setToken, storeUsername } from '../../lib/common'
-import SearchInput from './SearchInput'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Button, Form, Modal } from 'react-bootstrap';
+import { Form, Modal } from 'react-bootstrap';
 import Logo from '../../assets/logo-4.png'
+import LoadingSpinner from './LoadingSpinner';
 
 export default function Navbar() {
     const navigate = useNavigate()
 
     const [toggleLogout, setToggleLogout] = useState()
 
+    const [error, setError] = useState()
 
     const [show, setShow] = useState(false);
     const [isSignUp, setIsSignUp] = useState(false)
@@ -20,8 +21,27 @@ export default function Navbar() {
         setShow(false);
         setUserFound(false)
         setIsSignUp(false)
+        setError()
     }
 
+
+    function returnError() {
+        if (error.response.status === 401) {
+            return error.response.data.detail
+        } else if (error.response.status === 400) {
+            if (error.response.data.username) {
+                return error.response.data.username[0]
+            } else if (error.response.data.password_confirmation) {
+                return 'Please enter password confirmation'
+            } else if (error.response.data.email) {
+                return error.response.data.email
+            } else if (error.response.data.non_field_errors) {
+                return error.response.data.non_field_errors
+            } else if (error.response.data.password) {
+                return 'Please enter a password'
+            }
+        }
+    }
     const handleShow = () => setShow(true);
 
     const [formData, setFormData] = useState({
@@ -40,6 +60,7 @@ export default function Navbar() {
 
         } catch (error) {
             console.log(error)
+            setError(error)
         }
     }
 
@@ -54,6 +75,7 @@ export default function Navbar() {
             login()
         } catch (error) {
             console.log(error)
+            setError(error)
         }
     }
 
@@ -80,6 +102,7 @@ export default function Navbar() {
                 storeUsername(data.username)
             } catch (error) {
                 console.log(error)
+                setError(error)
             }
         }
     }
@@ -117,7 +140,7 @@ export default function Navbar() {
                         </div>
                         <div className='d-flex mx-5'>
                             <span>{isLoggedIn() && getUsername()}</span> &nbsp;&nbsp;&nbsp;
-                            <span type="button" className='logout-button'onClick={handleLogout}>{isLoggedIn() ? 'Logout' : 'Log In / Sign Up'}</span>
+                            <span type="button" className='logout-button' onClick={handleLogout}>{isLoggedIn() ? 'Logout' : 'Log In / Sign Up'}</span>
                         </div>
                     </div>
                 </nav>
@@ -129,6 +152,8 @@ export default function Navbar() {
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleContinue}>
+                        <p className='text-danger'>{error ? returnError() : ''}</p>
+
                         <Form.Group className="mb-3" controlId="email" value={formData.email} onChange={handleChange}>
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
@@ -150,6 +175,7 @@ export default function Navbar() {
                             </Form.Group>
                         }
                         {(userFound || isSignUp) &&
+
                             <Form.Group
                                 className="mb-3" controlId="password" value={formData.password} onChange={handleChange}>
                                 <Form.Label>Password</Form.Label>
@@ -159,16 +185,22 @@ export default function Navbar() {
                                     autoFocus={userFound ? true : false}
                                 />
                             </Form.Group>
+
                         }
-                        {isSignUp && <Form.Group
-                            className="mb-3" controlId="password_confirmation"
-                            value={formData.password_confirmation} onChange={handleChange}>
-                            <Form.Label>Password Confirmation</Form.Label>
-                            <Form.Control
-                                type="password"
-                                placeholder="confirm password"
-                            />
-                        </Form.Group>
+                        {isSignUp &&
+
+                            <Form.Group
+                                className="mb-3" controlId="password_confirmation"
+                                value={formData.password_confirmation} onChange={handleChange}>
+                                <Form.Label>Password Confirmation</Form.Label>
+                                <Form.Control
+                                    type="password"
+                                    placeholder="confirm password"
+                                />
+                            </Form.Group>
+
+
+
                         }
 
                     </Form>

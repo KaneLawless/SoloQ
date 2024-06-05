@@ -14,7 +14,7 @@ export default function PostForm({ communities, categories }) {
         title: '',
         text: '',
         image: '',
-        community: '',
+        community: undefined,
         categories: [],
     })
 
@@ -26,7 +26,8 @@ export default function PostForm({ communities, categories }) {
         console.log(formData)
     }
 
-    async function sendPost() {
+    async function sendPost(e) {
+        e.preventDefault()
         console.log(formData)
         try {
             const { data } = await axios.post('/api/posts/', formData, { headers: { Authorization: `Bearer ${getToken()}` } })
@@ -37,9 +38,9 @@ export default function PostForm({ communities, categories }) {
         }
     }
 
-    
+
     return (
-        <Form onSubmit={sendPost}>
+        <Form >
             <Form.Group className="mb-3" controlId='title' value={formData.title} onChange={handleChange} >
                 <Form.Control
                     placeholder='Post title'
@@ -56,13 +57,14 @@ export default function PostForm({ communities, categories }) {
 
             <Form.Group className="mb-3" controlId='community' value={formData.community} onChange={handleChange}>
                 <Form.Select>
-                    <option>Select a community..</option>
+                    <option >Select a community..</option>
                     {communities && communities.map((community) => {
                         return (
                             <option key={community.id} value={community.id}>{community.name}</option>
                         )
                     })}
                 </Form.Select>
+
             </Form.Group>
             <Form.Group className='mb-3' controlId="categories" value={formData.categories} onChange={handleChange}>
                 <Form.Select>
@@ -77,7 +79,7 @@ export default function PostForm({ communities, categories }) {
             <Form.Group className="mb-3" controlId='image' value={formData.image} onChange={handleChange}>
                 <ImgUpload formData={formData} sendPost={sendPost} setFormData={setFormData} />
             </Form.Group>
-            
+
         </Form>
     )
 }
