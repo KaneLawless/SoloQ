@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { isLoggedIn, removeToken, setToken } from '../../lib/common'
+import { getUsername, isLoggedIn, removeToken, removeUsername, setToken, storeUsername } from '../../lib/common'
 import SearchInput from './SearchInput'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
@@ -15,10 +15,6 @@ export default function Navbar() {
     const [show, setShow] = useState(false);
     const [isSignUp, setIsSignUp] = useState(false)
     const [userFound, setUserFound] = useState(false)
-    const [username, setUsername] = useState()
-
-
-
 
     const handleClose = () => {
         setShow(false);
@@ -53,6 +49,7 @@ export default function Navbar() {
         try {
             const res = await axios.post('/api/auth/register/', formData)
             console.log(res)
+            storeUsername(formData.username)
             setIsSignUp(false)
             login()
         } catch (error) {
@@ -63,7 +60,7 @@ export default function Navbar() {
 
 
     async function handleContinue(e) {
-
+        console.log("GOT HERE")
         if (!userFound && !isSignUp) {
             console.log("submitting form")
             e.preventDefault()
@@ -80,7 +77,7 @@ export default function Navbar() {
                 const { data } = await axios.post('/api/auth/finduser/', { 'email': formData.email })
                 console.log(data)
                 data.found === 'true' ? setUserFound(true) : setIsSignUp(true)
-                setUsername(data.username)
+                storeUsername(data.username)
             } catch (error) {
                 console.log(error)
             }
@@ -95,6 +92,7 @@ export default function Navbar() {
     function handleLogout() {
         if (isLoggedIn()) {
             removeToken()
+            removeUsername()
             setToggleLogout(true)
             navigate('/')
         } else {
@@ -120,7 +118,7 @@ export default function Navbar() {
                         <div />
                         <SearchInput />
                         <div className='d-flex'>
-                            <span >{isLoggedIn() && username}</span> &nbsp;&nbsp;&nbsp;
+                            <span >{isLoggedIn() && getUsername()}</span> &nbsp;&nbsp;&nbsp;
                             <span type="button" onClick={handleLogout}>{isLoggedIn() ? 'Logout' : 'Log In / Sign Up'}</span>
                         </div>
                         <div />
@@ -128,12 +126,12 @@ export default function Navbar() {
                 </nav>
             </header>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} >
                 <Modal.Header closeButton>
-                    <Modal.Title>Login/Register</Modal.Title>
+                    <Modal.Title>{isSignUp ? 'Register' : userFound ? `Welcome back, ${getUsername()}!` : 'Login/Register'}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body onSubmit={handleContinue}>
-                    <Form>
+                <Modal.Body>
+                    <Form onSubmit={handleContinue}>
                         <Form.Group className="mb-3" controlId="email" value={formData.email} onChange={handleChange}>
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
@@ -142,50 +140,48 @@ export default function Navbar() {
                                 autoFocus
                             />
                         </Form.Group>
-                        <>
-                            {isSignUp &&
 
-                                <Form.Group
-                                    className="mb-3" controlId="username" value={formData.username} onChange={handleChange}>
-                                    <Form.Label>Username</Form.Label>
-                                    <Form.Control
-                                        placeholder="username"
-                                        autoFocus
-                                    />
-                                </Form.Group>
-                            }
-                            {(userFound || isSignUp) &&
-                                <Form.Group
-                                    className="mb-3" controlId="password" value={formData.password} onChange={handleChange}>
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control
-                                        type="password"
-                                        placeholder="password"
-                                        autoFocus={userFound ? true : false}
-                                    />
-                                </Form.Group>
-                            }
-                            {isSignUp && <Form.Group
-                                className="mb-3" controlId="password_confirmation"
-                                value={formData.password_confirmation} onChange={handleChange}>
-                                <Form.Label>Password Confirmation</Form.Label>
+                        {isSignUp &&
+
+                            <Form.Group
+                                className="mb-3" controlId="username" value={formData.username} onChange={handleChange}>
+                                <Form.Label>Username</Form.Label>
                                 <Form.Control
-                                    type="password"
-                                    placeholder="confirm password"
+                                    placeholder="username"
+                                    autoFocus
                                 />
                             </Form.Group>
-                            }
-                        </>
+                        }
+                        {(userFound || isSignUp) &&
+                            <Form.Group
+                                className="mb-3" controlId="password" value={formData.password} onChange={handleChange}>
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control
+                                    type="password"
+                                    placeholder="password"
+                                    autoFocus={userFound ? true : false}
+                                />
+                            </Form.Group>
+                        }
+                        {isSignUp && <Form.Group
+                            className="mb-3" controlId="password_confirmation"
+                            value={formData.password_confirmation} onChange={handleChange}>
+                            <Form.Label>Password Confirmation</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="confirm password"
+                            />
+                        </Form.Group>
+                        }
+
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    {/* <Button variant="secondary" onClick={handleClose}>
-                        Back
-                    </Button> */}
                     <Button variant="primary" onClick={handleContinue}>
                         Continue
                     </Button>
                 </Modal.Footer>
-            </Modal></>
+            </Modal>
+        </>
     )
 }

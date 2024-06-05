@@ -112,7 +112,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                                         : <p className="mb-1">{postData.owner.username}   {timeAgo(postData.created_at)}</p>}
                                 </Card.Header>
                                 <Card.Title className='my-3'>{editTitle || postData.title}</Card.Title>
-                                <Card.Img src={postData.image} alt='post image' className="mb-2"></Card.Img>
+                                {postData.image && <Card.Img src={postData.image} alt='post image' className="mb-2"></Card.Img>}
                                 {editText || <Card.Text>{postData.text}</Card.Text>}
                                 <div className="d-flex flex-row justify-content-around">
                                     <div    >

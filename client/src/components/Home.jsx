@@ -53,7 +53,7 @@ export default function Home() {
 
                         {(filteredPosts || postData).map((post) => {
                             return (
-                                <Card key={post.id} className='mb-3' >
+                                <Card key={post.id} className='mb-3 ' >
                                     <Card.Body>
                                         <div className='d-flex justify-content-between'>
                                             <Card.Text >{post.community.name}</Card.Text>

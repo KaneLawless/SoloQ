@@ -4,6 +4,17 @@ export function setToken(token) {
     localStorage.setItem(tokenName, token)
 }
 
+export function storeUsername(username) {
+    localStorage.setItem('username', username)
+}
+export function getUsername() {
+    return localStorage.getItem('username')
+}
+
+export function removeUsername() {
+    localStorage.removeItem('username')
+}
+
 export function getToken() {
     return localStorage.getItem(tokenName)
 }
@@ -77,6 +88,6 @@ export function timeAgo(created_at) {
 }
 
 
-export function resizeImage(image){
-    
+export function resizeImage(image) {
+
 }
