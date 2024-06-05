@@ -49,8 +49,7 @@ export default function Home() {
                     <Col className="text-center">
                         <LeftNav posts={postData} filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts} />
                     </Col>
-                    <Col className='col-6 text-center' >
-
+                    <Col className='col-6 text-center scroll'>
                         {(filteredPosts || postData).map((post) => {
                             return (
                                 <Card key={post.id} className='mb-3 ' >
@@ -70,7 +69,7 @@ export default function Home() {
                         })
                         }
                     </Col>
-                    <Col className="text-center">
+                    <Col className="text-center ">
                         <RightNav communities={communityData} />
                     </Col>
                 </Row>

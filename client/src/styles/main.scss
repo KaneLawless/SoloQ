@@ -18,8 +18,17 @@
     font-size: 1.3rem;
 }
 
+.scroll {
+    overflow-y: scroll;
+    height: 665.3px
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
 .comm-cards-nav {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     padding: 4px;
     font-size: 1.3rem;
     text-align: center;

@@ -18,7 +18,7 @@ export default function RightNav({ community, communities }) {
     return (
         <>
             {(location.pathname === '/' || location.pathname.includes('communities')) &&
-                <Container>
+                <Container className="scroll">
                     <h3>Explore Communities</h3>
                     {communities.map((community) => {
                         return (
