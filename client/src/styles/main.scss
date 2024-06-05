@@ -213,3 +213,13 @@ body {
     padding: 13px;
     background-color: #e09e50;
 }
+
+.make-one {
+    color: grey;
+    cursor: pointer;
+
+    &:hover {
+        color: #e09e50;
+
+    }
+}

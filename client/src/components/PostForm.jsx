@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 export default function PostForm({ communities, categories }) {
 
     const navigate = useNavigate()
+    const [error, setError] = useState()
 
     const [formData, setFormData] = useState({
         title: '',
@@ -28,13 +29,17 @@ export default function PostForm({ communities, categories }) {
 
     async function sendPost(e) {
         e.preventDefault()
+        if (formData.community === undefined) {
+            setError('You must select a Community')
+            return
+        }
         console.log(formData)
         try {
             const { data } = await axios.post('/api/posts/', formData, { headers: { Authorization: `Bearer ${getToken()}` } })
             console.log(data)
             navigate(`/posts/${data.id}`)
         } catch (error) {
-            console.log(error)
+            setError('Please check the post details and try again')
         }
     }
 
@@ -54,6 +59,7 @@ export default function PostForm({ communities, categories }) {
                     rows={8}
                     required />
             </Form.Group>
+            <p className="text-danger">{error ? error : ''}</p>
 
             <Form.Group className="mb-3" controlId='community' value={formData.community} onChange={handleChange}>
                 <Form.Select>
@@ -66,7 +72,7 @@ export default function PostForm({ communities, categories }) {
                 </Form.Select>
 
             </Form.Group>
-            <Form.Group className='mb-3' controlId="categories" value={formData.categories} onChange={handleChange}>
+            <Form.Group className='mb-3' required controlId="categories" value={formData.categories} onChange={handleChange}>
                 <Form.Select>
                     <option>Add a category..</option>
                     {categories && categories.map((category) => {
@@ -79,7 +85,6 @@ export default function PostForm({ communities, categories }) {
             <Form.Group className="mb-3" controlId='image' value={formData.image} onChange={handleChange}>
                 <ImgUpload formData={formData} sendPost={sendPost} setFormData={setFormData} />
             </Form.Group>
-
         </Form>
     )
 }
