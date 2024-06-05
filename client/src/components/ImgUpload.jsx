@@ -49,7 +49,7 @@ export default function ImgUpload({ formData, setFormData, sendPost }) {
                     required
                 />
             </Form.Group>
-            {uploading ? <LoadingSpinner /> : <Button className='comment-button' onClick={sendPost}>Create Post</Button>}
+            {uploading ? <LoadingSpinner /> : <button className='comment-button' onClick={sendPost}>Create Post</button>}
         </>
     )
 }

@@ -13,6 +13,8 @@ import Delete from '../../assets/delete.svg'
 import Comment from '../../assets/comment.svg'
 import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
+import SearchInput from "./SearchInput";
+
 
 export default function SinglePost({ editTitle, editText, editing, submitChanges }) {
 
@@ -104,6 +106,8 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                 <Col><LeftNav /></Col>
                 {postData &&
                     <Col className="col-6 scroll">
+                        <SearchInput />
+
                         <Card>
                             <Card.Body>
                                 <Card.Header className="d-flex justify-content-between align-items-center p-0">
@@ -146,10 +150,10 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                             <div className="mb-3">
                                 {editing || <textarea value={commentInput} onChange={handleChange} className="form-control mb-3" id="comment-input" rows="3" placeholder="Add a comment.."></textarea>}
                                 <div className="d-flex flex-row justify-content-end">
-                                    <Button className='comment-button' onClick={handleSubmit}>{editing ? 'Save Post' : 'Post Comment'}</Button>
+                                    <button className='comment-button' onClick={handleSubmit}>{editing ? 'Save Post' : 'Post Comment'}</button>
                                 </div>
                             </div>
-                            : 'Log in to post a comment'}
+                            : <p className="mb-4 px-2">Log in to post a comment</p>}
                     </Col>
                 }
                 <Col>{communityData && <RightNav community={communityData} />}</Col>

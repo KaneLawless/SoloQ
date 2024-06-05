@@ -3,7 +3,6 @@ import { Container, Button, Card } from "react-bootstrap";
 import { getToken, isLoggedIn } from '../../lib/common'
 import { jwtDecode } from "jwt-decode";
 import { useState } from "react";
-import axios from "axios";
 
 export default function LeftNav({ posts, filteredPosts, setFilteredPosts }) {
 
@@ -45,9 +44,9 @@ export default function LeftNav({ posts, filteredPosts, setFilteredPosts }) {
     return (
         <>
             <Container className="d-flex flex-column scroll">
-                {location.pathname.includes('create-post') || <Link to={'/create-post'}><Button className="mb-3 create-post-button">
+                {location.pathname.includes('create-post') || isLoggedIn() ? <Link to={'/create-post'}><Button className="mb-3 create-post-button">
                     {location.pathname.includes('communities') ? 'Post in this Community' : 'Post to a Community'}
-                </Button></Link>}
+                </Button></Link> : <div><p style={{ fontSize: '1.2rem' }}><br /><span>Register</span> to post in a community and find someone today!</p><br /></div>}
 
 
                 {location.pathname === '/' &&

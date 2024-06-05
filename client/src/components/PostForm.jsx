@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import ImgUpload from "./ImgUpload";
 import axios from "axios";
 import { getToken } from "../../lib/common";

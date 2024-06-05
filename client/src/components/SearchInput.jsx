@@ -20,21 +20,21 @@ export default function SearchInput() {
     function handleSearch(e) {
         e.preventDefault()
         setSearch('')
-        navigate(`/search/${search}`)
+
+        navigate(`/search/${search ? search : ' '}`)
     }
 
     return (
-        <Container className='flex-grow-1'>
-            <Form onSubmit={handleSearch} className='search-input'>
-                <InputGroup >
-                    <Form.Control placeholder="Search for a Community.." id="search" value={search} onChange={handleChange} />
-                    <Button variant="outline" className="search-btn" onClick={handleSearch}>
-                        <img src={SearchImg} style={{width:'45%'}}/>
-                    </Button>
+        <Form onSubmit={handleSearch} className='search-input' >
+            <InputGroup >
+                <Form.Control placeholder="Search for a Community.." id="search" value={search} onChange={handleChange} />
+                <Button variant="outline" className="search-btn" onClick={handleSearch}>
+                    <img src={SearchImg} style={{ width: '45%' }} />
+                </Button>
 
-                </InputGroup>
+            </InputGroup>
 
-            </Form>
-        </Container>
+        </Form>
+
     )
 }

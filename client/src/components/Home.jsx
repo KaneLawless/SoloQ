@@ -5,6 +5,7 @@ import { timeAgo } from "../../lib/common";
 import { useNavigate, Link } from "react-router-dom";
 import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
+import SearchInput from "./SearchInput";
 
 
 export default function Home() {
@@ -50,6 +51,8 @@ export default function Home() {
                         <LeftNav posts={postData} filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts} />
                     </Col>
                     <Col className='col-6 text-center scroll' >
+                        <h1>Recent Posts</h1>
+                        <SearchInput />
 
                         {(filteredPosts || postData).map((post) => {
                             return (

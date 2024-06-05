@@ -36,7 +36,12 @@ export default function Search() {
         async function getData() {
             try {
                 const { data } = await axios.get(`/api/communities/`)
-                const filtered = data.filter((community) => community.name.toLowerCase().includes(params.query))
+                let filtered;
+                if (params.query == ' ') {
+                    filtered = data
+                } else {
+                    filtered = data.filter((community) => community.name.toLowerCase().includes(params.query))
+                }
                 setSearchData(filtered)
             } catch (error) {
                 console.log(error)
@@ -62,13 +67,13 @@ export default function Search() {
                         <hr />
                         {searchData ? searchData.map(community => {
                             return <ListGroup.Item
-                                key={community.id} style={{ cursor: "pointer" }}
+                                key={community.id} className="search-list-item"
                                 id={community.id} onClick={handleClick}>{community.name}
                             </ListGroup.Item>
                         }) :
                             error ? <p className="error">{error}</p> : <LoadingSpinner />
                         }
-                        <Button className="search-btn my-4" onClick={goBack}>Back</Button>
+                        <button className="comment-button my-4" onClick={goBack}>Back</button>
 
                     </ListGroup>
                 </Col>

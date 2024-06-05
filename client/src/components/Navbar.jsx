@@ -115,10 +115,9 @@ export default function Navbar() {
                                 <img style={{ width: '25%' }} src={Logo} alt="Home" />
                             </Link>
                         </div>
-                        <SearchInput />
                         <div className='d-flex mx-5'>
-                            <span >{isLoggedIn() && getUsername()}</span> &nbsp;&nbsp;&nbsp;
-                            <span type="button" onClick={handleLogout}>{isLoggedIn() ? 'Logout' : 'Log In / Sign Up'}</span>
+                            <span>{isLoggedIn() && getUsername()}</span> &nbsp;&nbsp;&nbsp;
+                            <span type="button" className='logout-button'onClick={handleLogout}>{isLoggedIn() ? 'Logout' : 'Log In / Sign Up'}</span>
                         </div>
                     </div>
                 </nav>
@@ -175,9 +174,9 @@ export default function Navbar() {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleContinue}>
+                    <button className='comment-button' onClick={handleContinue}>
                         Continue
-                    </Button>
+                    </button>
                 </Modal.Footer>
             </Modal>
         </>

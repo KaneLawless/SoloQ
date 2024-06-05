@@ -107,17 +107,19 @@ body {
 
 .comment-button {
     background-color: #8cbdb9;
-    border: none;
+    border: 1px solid #8cbdb9;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
 
     &:hover {
         background-color: #e8eceb;
-        border: 1px solid#8cbdb9;
         color: #8cbdb9;
     }
 }
 
 .search-input {
-    width: 50%;
+    margin-bottom: 10px;
 }
 
 .search-btn {
@@ -127,7 +129,7 @@ body {
 
     &:hover {
         background-color: #e8eceb;
-
+        border: 1px solid #8cbdb9;
         color: #8cbdb9;
     }
 }
@@ -172,4 +174,42 @@ body {
 
 .create-post-container {
     margin: 20px auto;
+}
+
+.search-list-item {
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e09e50;
+        color: white;
+    }
+}
+
+.logout-button:hover {
+    color: white;
+}
+
+.footer-col {
+    text-align: center;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: black;
+
+}
+
+.footer-link:hover {
+    color: #e09e50;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.footer {
+    padding: 13px;
+    background-color: #e09e50;
 }

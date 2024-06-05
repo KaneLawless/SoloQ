@@ -5,6 +5,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
 import { timeAgo } from "../../lib/common";
+import SearchInput from "./SearchInput";
 
 export default function SingleCommunity() {
     const params = useParams()
@@ -41,7 +42,7 @@ export default function SingleCommunity() {
                     <Col><LeftNav /></Col>
                     <Col className="col-6 scroll">
                         <h1 className="text-center">{communityData.name}</h1>
-
+                        <SearchInput />
                         {communityData.posts.map((post) => {
                             return (
                                 <Card key={post.id} className="mb-3 p-3">
