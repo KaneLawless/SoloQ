@@ -5,9 +5,14 @@ body {
 .comm-cards-nav {
     margin-bottom: 16px;
     padding: 4px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-align: center;
     background-color: #8cbdb9;
+    border: none;
+
+    &:hover {
+        background-color: #e09e50;
+    }
 }
 
 .cat-nav-card {
@@ -51,7 +56,12 @@ body {
 }
 
 .pointer {
+    color: black;
     cursor: pointer;
+
+    &:hover {
+        color: lighten(black, 60%)
+    }
 }
 
 .comm-card-title {
@@ -91,8 +101,19 @@ body {
     color: white;
 }
 
-.soloq-button {
-    background-color: #ffc1ff;
+.comment-button {
+    background-color: #8cbdb9;
+    border: none;
+
+    &:hover {
+        background-color: #e8eceb;
+        border: 1px solid#8cbdb9;
+        color: #8cbdb9;
+    }
+}
+
+.search-input {
+    width: 50%;
 }
 
 .search-btn {
@@ -110,6 +131,10 @@ body {
 .comm-link {
     text-decoration: none;
     color: black;
+
+    &:hover {
+        color: white
+    }
 }
 
 .other-posts-link {
@@ -131,4 +156,12 @@ body {
 .interest-button {
     width: 7%;
     cursor: pointer;
+}
+
+.other-posts {
+    color: #8cbdb9;
+
+    &:hover {
+        color: #e09e50
+    }
 }

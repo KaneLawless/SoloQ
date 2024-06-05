@@ -4,7 +4,7 @@ import SearchInput from './SearchInput'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Button, Form, Modal } from 'react-bootstrap';
-
+import Logo from '../../assets/logo-4.png'
 
 export default function Navbar() {
     const navigate = useNavigate()
@@ -108,20 +108,18 @@ export default function Navbar() {
     return (
         <>
             <header className='mb-3'>
-                <nav className="navbar navbar-expand-md header nav-color">
-                    <div className="container ">
-                        <div >
-                            <Link className="navbar-brand" to={'/'}>
-                                <img className="home-logo" src={'#'} alt="Home" />
+                <nav className="navbar navbar-expand-md nav-color">
+                    <div className="container">
+                        <div>
+                            <Link to={'/'}>
+                                <img style={{ width: '25%' }} src={Logo} alt="Home" />
                             </Link>
                         </div>
-                        <div />
                         <SearchInput />
-                        <div className='d-flex'>
+                        <div className='d-flex mx-5'>
                             <span >{isLoggedIn() && getUsername()}</span> &nbsp;&nbsp;&nbsp;
                             <span type="button" onClick={handleLogout}>{isLoggedIn() ? 'Logout' : 'Log In / Sign Up'}</span>
                         </div>
-                        <div />
                     </div>
                 </nav>
             </header>

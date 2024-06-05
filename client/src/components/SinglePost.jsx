@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios'
-import { Card, Col, Container, Row, Alert } from "react-bootstrap";
+import { Card, Col, Container, Row, Button } from "react-bootstrap";
 import { getToken, timeAgo, isLoggedIn } from "../../lib/common";
 
 import { jwtDecode } from "jwt-decode";
@@ -103,7 +103,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
             <Row>
                 <Col><LeftNav /></Col>
                 {postData &&
-                    <Col className="col-6">
+                    <Col className="col-6 scroll">
                         <Card>
                             <Card.Body>
                                 <Card.Header className="d-flex justify-content-between align-items-center p-0">
@@ -146,7 +146,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                             <div className="mb-3">
                                 {editing || <textarea value={commentInput} onChange={handleChange} className="form-control mb-3" id="comment-input" rows="3" placeholder="Add a comment.."></textarea>}
                                 <div className="d-flex flex-row justify-content-end">
-                                    <button className='soloq-button'onClick={handleSubmit}>{editing ? 'Save Post' : 'Post Comment'}</button>
+                                    <Button className='comment-button' onClick={handleSubmit}>{editing ? 'Save Post' : 'Post Comment'}</Button>
                                 </div>
                             </div>
                             : 'Log in to post a comment'}

@@ -43,10 +43,10 @@ export default function LeftNav({ posts, filteredPosts, setFilteredPosts }) {
 
     return (
         <>
-            <Container className="d-flex flex-column">
-                <Link to={'/create-post'}><Button className="mb-3 create-post-button">
-                    {location.pathname === '/' ? 'Post to a Community' : 'Post in this Community'}
-                </Button></Link>
+            <Container className="d-flex flex-column scroll">
+                {location.pathname.includes('create-post') || <Link to={'/create-post'}><Button className="mb-3 create-post-button">
+                    {location.pathname.includes('communities') ? 'Post in this Community' : 'Post to a Community'}
+                </Button></Link>}
 
                 {location.pathname === '/' &&
 

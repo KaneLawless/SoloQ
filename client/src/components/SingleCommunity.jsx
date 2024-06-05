@@ -39,7 +39,7 @@ export default function SingleCommunity() {
             {communityData &&
                 <Row>
                     <Col><LeftNav /></Col>
-                    <Col className="col-6">
+                    <Col className="col-6 scroll">
                         <h1 className="text-center">{communityData.name}</h1>
 
                         {communityData.posts.map((post) => {

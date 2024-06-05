@@ -46,16 +46,17 @@ export default function Home() {
         <Container className="px-5" >
             {postData && communityData &&
                 <Row>
-                    <Col className="text-center">
+                    <Col className="text-center ">
                         <LeftNav posts={postData} filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts} />
                     </Col>
-                    <Col className='col-6 text-center scroll'>
+                    <Col className='col-6 text-center scroll' >
+
                         {(filteredPosts || postData).map((post) => {
                             return (
                                 <Card key={post.id} className='mb-3 ' >
                                     <Card.Body>
                                         <div className='d-flex justify-content-between'>
-                                            <Card.Text >{post.community.name}</Card.Text>
+                                            <Card.Text className='pointer' onClick={() => navigate(`/communities/${post.community.id}`)}>{post.community.name}</Card.Text>
                                             <Card.Text >{post.owner.username} {timeAgo(post.created_at)} </Card.Text>
                                         </div>
                                         <Card.Title><Link className='home-card-title' to={`/posts/${post.id}`}>
@@ -69,7 +70,7 @@ export default function Home() {
                         })
                         }
                     </Col>
-                    <Col className="text-center ">
+                    <Col className="text-center">
                         <RightNav communities={communityData} />
                     </Col>
                 </Row>

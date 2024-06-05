@@ -35,22 +35,6 @@ export default function ImgUpload({ formData, setFormData, sendPost }) {
         }
     }
 
-    // const resizeFile = (file) =>
-    //     new Promise((resolve) => {
-    //         Resizer.imageFileResizer(
-    //             file,
-    //             612, // new image max width
-    //             408, // new image max height
-    //             'JPEG', // default type
-    //             100, // new image quality
-    //             0, // rotation degree
-    //             (uri) => {
-    //                 resolve(uri); // resized new image uri
-    //             },
-    //             'file' // output type
-    //         )
-    //     })
-
 
     return (
         <>
@@ -65,7 +49,7 @@ export default function ImgUpload({ formData, setFormData, sendPost }) {
                     required
                 />
             </Form.Group>
-            {uploading ? <LoadingSpinner /> : <Button onClick={sendPost}>Create Post</Button>}
+            {uploading ? <LoadingSpinner /> : <Button className='comment-button' onClick={sendPost}>Create Post</Button>}
         </>
     )
 }

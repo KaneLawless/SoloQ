@@ -1,7 +1,8 @@
-import { Form, InputGroup, Button } from "react-bootstrap"
-import { useState, useEffect } from "react"
+import { Form, InputGroup, Button, Container } from "react-bootstrap"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import SearchImg from '../../assets/search.svg'
+
 
 
 export default function SearchInput() {
@@ -23,7 +24,7 @@ export default function SearchInput() {
     }
 
     return (
-        <>
+        <Container className='flex-grow-1'>
             <Form onSubmit={handleSearch} className='search-input'>
                 <InputGroup >
                     <Form.Control placeholder="Search for a Community.." id="search" value={search} onChange={handleChange} />
@@ -34,6 +35,6 @@ export default function SearchInput() {
                 </InputGroup>
 
             </Form>
-        </>
+        </Container>
     )
 }
