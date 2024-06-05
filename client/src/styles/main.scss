@@ -1,3 +1,45 @@
+body {
+    background-color: #e8eceb;
+}
+
+.comm-cards-nav {
+    margin-bottom: 16px;
+    padding: 4px;
+    font-size: 1.3rem;
+    text-align: center;
+    background-color: #8cbdb9;
+}
+
+.cat-nav-card {
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    color: black;
+    background-color: #8cbdb9;
+
+    &:hover {
+        background-color: #e09e50;
+        color: white;
+    }
+}
+
+.create-post-button {
+    padding: 60px;
+    width: 100%;
+    color: black;
+    border: none;
+    background-color: #8cbdb9;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e09e50;
+    }
+}
+
+.nav-color {
+    background-color: #e09e50;
+}
+
 .home-card-title {
     text-decoration: none;
     color: black;
@@ -27,23 +69,42 @@
     display: none;
 }
 
-.comm-cards-nav {
-    margin-bottom: 16px;
-    padding: 4px;
-    font-size: 1.3rem;
-    text-align: center;
+.filters {
+    border: none;
+
+    &.active {
+        background-color: #e09e50;
+    }
 }
 
-.cat-nav-card {
-    text-decoration: none;
-    text-align: center;
-    padding: 10px;
-    color: black;
+.interested-filter {
+    border: none;
+    cursor: pointer;
+
+    &.active {
+        background-color: #e09e50;
+    }
 }
 
-.create-post-button {
-    padding: 60px;
-    width: 100%
+.remove-filters {
+    background-color: #2d3e4e;
+    color: white;
+}
+
+.soloq-button {
+    background-color: #ffc1ff;
+}
+
+.search-btn {
+    background-color: #8cbdb9;
+    font-weight: bold;
+    color: white;
+
+    &:hover {
+        background-color: #e8eceb;
+
+        color: #8cbdb9;
+    }
 }
 
 .comm-link {

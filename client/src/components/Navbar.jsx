@@ -108,7 +108,7 @@ export default function Navbar() {
     return (
         <>
             <header className='mb-3'>
-                <nav className="navbar navbar-expand-md header" style={{ background: '#E6E6E6' }}>
+                <nav className="navbar navbar-expand-md header nav-color">
                     <div className="container ">
                         <div >
                             <Link className="navbar-brand" to={'/'}>

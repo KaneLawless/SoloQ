@@ -146,7 +146,7 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                             <div className="mb-3">
                                 {editing || <textarea value={commentInput} onChange={handleChange} className="form-control mb-3" id="comment-input" rows="3" placeholder="Add a comment.."></textarea>}
                                 <div className="d-flex flex-row justify-content-end">
-                                    <button onClick={handleSubmit}>{editing ? 'Save Post' : 'Post Comment'}</button>
+                                    <button className='soloq-button'onClick={handleSubmit}>{editing ? 'Save Post' : 'Post Comment'}</button>
                                 </div>
                             </div>
                             : 'Log in to post a comment'}
