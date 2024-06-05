@@ -1,14 +1,14 @@
 import { Card, Container } from "react-bootstrap"
-import { useLocation, Link, useNavigate, useParams } from "react-router-dom"
+import { useLocation, Link, useNavigate } from "react-router-dom"
 import { timeAgo } from "../../lib/common"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function RightNav({ community, communities }) {
 
     const location = useLocation()
     const navigate = useNavigate()
-    const params = useParams()
     const [update, setUpdate] = useState()
+
 
     function clickPost(e) {
         setUpdate(e.target.name)
@@ -17,10 +17,10 @@ export default function RightNav({ community, communities }) {
 
     return (
         <>
-            {(location.pathname === '/' || location.pathname.includes('communities')) &&
+            {location.pathname.includes('posts') ||
                 <Container className="scroll">
                     <h3>Explore Communities</h3>
-                    {communities.map((community) => {
+                    {communities && communities.map((community) => {
                         return (
                             <Card key={community.id} className='comm-cards-nav'>
                                 <Link className='comm-link' key={`community_${community.id}`} to={`/communities/${community.id}`}>{community.name}</Link>

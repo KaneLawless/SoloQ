@@ -62,6 +62,7 @@ export default function EditPost() {
                     <Form.Group className="mb-3" controlId='text' onChange={handleChange} value={formData.text}>
                         <Form.Control
                             as='textarea'
+                            rows={6}
                             onChange={handleChange}
                             value={formData.text}
                             required />

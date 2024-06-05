@@ -29,7 +29,7 @@ body {
 }
 
 .create-post-button {
-    padding: 60px;
+    padding: 30px;
     width: 100%;
     color: black;
     border: none;
@@ -99,6 +99,10 @@ body {
 .remove-filters {
     background-color: #2d3e4e;
     color: white;
+
+    &:hover {
+        color: white;
+    }
 }
 
 .comment-button {
@@ -164,4 +168,8 @@ body {
     &:hover {
         color: #e09e50
     }
+}
+
+.create-post-container {
+    margin: 20px auto;
 }

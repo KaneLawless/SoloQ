@@ -11,7 +11,7 @@ export default function CreatePost() {
     const [categoryData, setCategoryData] = useState()
 
     useEffect(() => {
-
+        console.log("ENTERED CRETAE POST")
         async function getData() {
             try {
                 const commRes = await axios.get('/api/communities/')
@@ -29,13 +29,17 @@ export default function CreatePost() {
         getData()
     }, [])
 
-    
+
     return (
-        <Container>
+        <Container className="create-post-container">
             <Row>
-                <Col><LeftNav /></Col>
-                <Col className="col-6"><PostForm communities={communityData} categories={categoryData}/></Col>
-                <Col><RightNav /></Col>
+                <Col></Col>
+                <Col className="col-7 mt-4">
+                    <h3 className="mb-3">Make a Post</h3>
+                    <PostForm communities={communityData} categories={categoryData} /></Col>
+                <Col></Col>
+
+                <Col className="col-3">{communityData && <RightNav communities={communityData} />}</Col>
             </Row>
         </Container>
     )

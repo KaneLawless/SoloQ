@@ -50,6 +50,7 @@ export default function PostForm({ communities, categories }) {
                 <Form.Control
                     as='textarea'
                     placeholder='Description..'
+                    rows={8}
                     required />
             </Form.Group>
 

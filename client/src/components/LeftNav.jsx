@@ -2,22 +2,23 @@ import { Link, useLocation } from "react-router-dom";
 import { Container, Button, Card } from "react-bootstrap";
 import { getToken, isLoggedIn } from '../../lib/common'
 import { jwtDecode } from "jwt-decode";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import axios from "axios";
 
 export default function LeftNav({ posts, filteredPosts, setFilteredPosts }) {
 
     const location = useLocation()
     const [activeFilter, setActiveFilter] = useState()
 
-    function filterPosts(e) {
-        console.log("setting filter id: ", e.target.id)
+    async function filterPosts(e) {
         setActiveFilter(e.target.id)
-        console.log(e.target.id == 'interested')
-
         let filtered = []
         if (e.target.id === 'interested') {
             const id = getUserId()
             filtered = posts.filter((post) => post.interests.includes(id))
+        } else if (e.target.id === 'my-posts') {
+            const id = getUserId()
+            filtered = posts.filter((post) => post.owner.id === id)
         } else {
             filtered = posts.filter((post) =>
                 post.categories[0].id == e.target.id ||
@@ -48,16 +49,26 @@ export default function LeftNav({ posts, filteredPosts, setFilteredPosts }) {
                     {location.pathname.includes('communities') ? 'Post in this Community' : 'Post to a Community'}
                 </Button></Link>}
 
+
                 {location.pathname === '/' &&
 
                     <div>
-                        {isLoggedIn() && <Card
-                            className={activeFilter == 'interested' ? "mb-4 cat-nav-card interested-filter active" : "mb-4 cat-nav-card interested-filter"}
-                            id='interested' onClick={filterPosts}>My Interested Posts</Card>}
-                        <div>
-                            <br />
-                        </div>
-                        <div className="mb-4 ">Categories</div>
+                        {isLoggedIn() &&
+                            <>
+                                <Card className="mb-3"></Card>
+                                <Card
+                                    className={activeFilter == 'interested' ? "mb-2 cat-nav-card interested-filter active" : "mb-2 cat-nav-card interested-filter"}
+                                    id='interested' onClick={filterPosts}>My Interested Posts
+                                </Card>
+                                <Card
+                                    className={activeFilter == 'my-posts' ? "mb-3 cat-nav-card interested-filter active" : "mb-3 cat-nav-card interested-filter"}
+                                    id='my-posts' onClick={filterPosts}>My Posts
+                                </Card>
+                                <Card className="mb-3"></Card>
+                            </>
+                        }
+
+                        <div className="mb-4">Categories</div>
                         {filteredPosts && <Card className="mb-4 cat-nav-card pointer remove-filters " onClick={reset}>Remove Filters</Card>}
                         <Card className="mb-3"><Button className={activeFilter == 1 ? "cat-nav-card filters active" : "cat-nav-card filters"} onClick={filterPosts} id='1'>Travel</Button></Card>
                         <Card className="mb-3"><Button className={activeFilter == 2 ? "cat-nav-card filters active" : "cat-nav-card filters"} onClick={filterPosts} id='2'>Gaming</Button></Card>
