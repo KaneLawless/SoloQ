@@ -31,9 +31,9 @@ body {
 .create-post-button {
     padding: 30px;
     width: 100%;
-    color: black;
+    color: white;
     border: none;
-    background-color: #8cbdb9;
+    background-color: darken(#8cbdb9, 15%);
     cursor: pointer;
 
     &:hover {
@@ -174,8 +174,8 @@ body {
 
 .create-post-container {
     margin: 20px auto;
-    
-    
+
+
 
 }
 

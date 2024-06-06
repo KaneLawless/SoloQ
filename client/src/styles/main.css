@@ -1,0 +1,213 @@
+body {
+  background-color: #e8eceb;
+}
+
+.comm-cards-nav {
+  margin-bottom: 16px;
+  padding: 4px;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: #8cbdb9;
+  border: none;
+}
+.comm-cards-nav:hover {
+  background-color: #e09e50;
+}
+
+.cat-nav-card {
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  color: black;
+  background-color: #8cbdb9;
+}
+.cat-nav-card:hover {
+  background-color: #e09e50;
+  color: white;
+}
+
+.create-post-button {
+  padding: 30px;
+  width: 100%;
+  color: white;
+  border: none;
+  background-color: #5ca09b;
+  cursor: pointer;
+}
+.create-post-button:hover {
+  background-color: #e09e50;
+}
+
+.nav-color {
+  background-color: #e09e50;
+}
+
+.home-card-title {
+  text-decoration: none;
+  color: black;
+  text-align: left;
+}
+
+.card-image {
+  cursor: pointer;
+}
+
+.pointer {
+  color: black;
+  cursor: pointer;
+}
+.pointer:hover {
+  color: #999999;
+}
+
+.comm-card-title {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 665.3px;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.filters {
+  border: none;
+}
+.filters.active {
+  background-color: #e09e50;
+}
+
+.interested-filter {
+  border: none;
+  cursor: pointer;
+}
+.interested-filter.active {
+  background-color: #e09e50;
+}
+
+.remove-filters {
+  background-color: #2d3e4e;
+  color: white;
+}
+.remove-filters:hover {
+  color: white;
+}
+
+.comment-button {
+  background-color: #8cbdb9;
+  border: 1px solid #8cbdb9;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+.comment-button:hover {
+  background-color: #e8eceb;
+  color: #8cbdb9;
+}
+
+.search-input {
+  margin-bottom: 10px;
+}
+
+.search-btn {
+  background-color: #8cbdb9;
+  font-weight: bold;
+  color: white;
+}
+.search-btn:hover {
+  background-color: #e8eceb;
+  border: 1px solid #8cbdb9;
+  color: #8cbdb9;
+}
+
+.comm-link {
+  text-decoration: none;
+  color: black;
+}
+.comm-link:hover {
+  color: white;
+}
+
+.other-posts-link {
+  text-decoration: none;
+  color: black;
+  padding: 2px;
+  text-align: center;
+}
+
+.edit-button {
+  width: 3%;
+  cursor: pointer;
+}
+
+.comment-image {
+  width: 5%;
+}
+
+.interest-button {
+  width: 7%;
+  cursor: pointer;
+}
+
+.other-posts {
+  color: #8cbdb9;
+}
+.other-posts:hover {
+  color: #e09e50;
+}
+
+.create-post-container {
+  margin: 20px auto;
+}
+
+.search-list-item {
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.search-list-item:hover {
+  background-color: #e09e50;
+  color: white;
+}
+
+.logout-button:hover {
+  color: white;
+}
+
+.footer-col {
+  text-align: center;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: black;
+}
+
+.footer-link:hover {
+  color: #e09e50;
+}
+.footer-link:hover:hover {
+  color: white;
+}
+
+.footer {
+  padding: 13px;
+  background-color: #e09e50;
+}
+
+.make-one {
+  color: grey;
+  cursor: pointer;
+}
+.make-one:hover {
+  color: #e09e50;
+}
+
+.spinner {
+  text-align: center;
+}/*# sourceMappingURL=main.css.map */
