@@ -90,7 +90,14 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
         if (token.user_id !== postData.owner.id) return
         try {
             await axios.delete(`/api/posts/${params.postId}`, { headers: { Authorization: `Bearer ${getToken()}` } })
-            navigate('/')
+            setShowAlert(false)
+            handleSuccess()
+
+            setTimeout(() => {
+                setShowSuccess(false)
+                navigate('/')
+            }
+                , 1000)
         } catch (error) {
             console.log(error)
         }
@@ -102,8 +109,11 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
 
 
     const [showAlert, setShowAlert] = useState(false)
-    
+    const [showSuccess, setShowSuccess] = useState(false)
+    const handleSuccess = () => setShowSuccess(true)
     const handleShow = () => setShowAlert(true)
+
+
     return (
         <Container className='py-5 d-flex justify-content-center'>
             {postData ?
@@ -115,6 +125,10 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                         <Alert variant="danger" onClose={() => setShowAlert(false)} show={showAlert} dismissible>
                             <Alert.Heading>Delete Post. Are you sure?</Alert.Heading>
                             <button className="comment-button" onClick={DeletePost}>Yes</button>
+
+                        </Alert>
+                        <Alert variant="success" onClose={() => setShowSuccess(false)} show={showSuccess} dismissible>
+                            <Alert.Heading>Successfully deleted</Alert.Heading>
                         </Alert>
                         <Card>
                             <Card.Body>
