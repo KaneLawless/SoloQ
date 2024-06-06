@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal, Form, InputGroup, Button } from "react-bootstrap";
 import axios from "axios";
 import { getToken } from "../../lib/common";
 import { useNavigate } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 export default function CreateCommunity({ show, setShow }) {
 
 
-    const handleClose = () => setShow(false)
+    function handleClose() {
+        setError('')
+        setShow(false)
+    }
     const [error, setError] = useState()
     const navigate = useNavigate()
     const [commName, setCommName] = useState()
@@ -48,7 +52,11 @@ export default function CreateCommunity({ show, setShow }) {
 
                     </InputGroup>
                 </Form>
-                <p className="px-2 text-danger">{error && error.response.data.name}</p>
+                <p className="px-2 text-danger">{error ?
+                    error.response.data.name ? error.response.data.name : 'Please log in to create a community.' : ''
+
+
+                }</p>
             </Modal.Body>
         </Modal>
     )
