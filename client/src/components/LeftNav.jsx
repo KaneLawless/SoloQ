@@ -53,7 +53,7 @@ export default function LeftNav({ posts, filteredPosts, setFilteredPosts }) {
                             <Button className="mb-3 create-post-button">
                                 {location.pathname.includes('communities') ? 'Post in this Community +' : 'Post to a Community +'}</Button>
                         </Link>
-                        <Button className='mb-2 cat-nav-card interested-filter' onClick={handleShow}>Create Community +</Button>
+                        <Button className='mb-2 create-post-button interested-filter' onClick={handleShow}>Create Community +</Button>
                         <CreateCommunity show={show} setShow={setShow} />
                     </>
                     : <div><p style={{ fontSize: '1.2rem' }}><br /><span>Register</span> to post in a community and find someone today!</p><br /></div>}

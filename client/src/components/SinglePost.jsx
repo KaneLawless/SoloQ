@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios'
-import { Card, Col, Container, Row, Button } from "react-bootstrap";
+import { Card, Col, Container, Row, Alert } from "react-bootstrap";
 import { getToken, timeAgo, isLoggedIn } from "../../lib/common";
 
 import { jwtDecode } from "jwt-decode";
@@ -97,10 +97,13 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
     }
 
     function clickEdit() {
-        !editing ? navigate(`/edit-post/${params.postId}`) : DeletePost()
+        !editing ? navigate(`/edit-post/${params.postId}`) : handleShow()
     }
 
 
+    const [showAlert, setShowAlert] = useState(false)
+    
+    const handleShow = () => setShowAlert(true)
     return (
         <Container className='py-5 d-flex justify-content-center'>
             {postData ?
@@ -109,7 +112,10 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
 
                     <Col className="col-6 scroll">
                         <SearchInput />
-
+                        <Alert variant="danger" onClose={() => setShowAlert(false)} show={showAlert} dismissible>
+                            <Alert.Heading>Delete Post. Are you sure?</Alert.Heading>
+                            <button className="comment-button" onClick={DeletePost}>Yes</button>
+                        </Alert>
                         <Card>
                             <Card.Body>
                                 <Card.Header className="d-flex justify-content-between align-items-center p-0">
