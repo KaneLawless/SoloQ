@@ -7,7 +7,7 @@ export default function CreateCommunity({ show, setShow }) {
 
 
     const handleClose = () => setShow(false)
-
+    const [error, setError] = useState()
     const navigate = useNavigate()
     const [commName, setCommName] = useState()
 
@@ -27,6 +27,7 @@ export default function CreateCommunity({ show, setShow }) {
             navigate(`/communities/${data.id}`)
 
         } catch (error) {
+            setError(error)
             console.log(error)
         }
     }
@@ -47,6 +48,7 @@ export default function CreateCommunity({ show, setShow }) {
 
                     </InputGroup>
                 </Form>
+                <p className="px-2 text-danger">{error && error.response.data.name}</p>
             </Modal.Body>
         </Modal>
     )

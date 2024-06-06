@@ -44,7 +44,8 @@ export default function SingleCommunity() {
                     <Col className="col-6 scroll">
                         <h1 className="text-center">{communityData.name}</h1>
                         <SearchInput />
-                        {communityData.posts.map((post) => {
+                        {communityData.posts.length > 0 ? 
+                        communityData.posts.map((post) => {
                             return (
                                 <Card key={post.id} className="mb-3 p-3">
                                     <div className="d-flex justify-content-between">
@@ -57,7 +58,9 @@ export default function SingleCommunity() {
                                     <Card.Text>category: {post.categories.map((category) => { return category.name + ' ' })}</Card.Text>
                                 </Card>
                             )
-                        })}
+                        })
+                        : <p style={{fontSize: '1.6rem', textAlign: 'center', marginTop:'4px'}}>No posts yet...</p>
+                    }
                     </Col>
                     <Col><RightNav communities={communities} /></Col>
                 </Row>
