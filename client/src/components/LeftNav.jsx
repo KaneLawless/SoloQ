@@ -3,9 +3,12 @@ import { Container, Button, Card } from "react-bootstrap";
 import { getToken, isLoggedIn } from '../../lib/common'
 import { jwtDecode } from "jwt-decode";
 import { useState } from "react";
+import CreateCommunity from "./CreateCommunity";
 
 export default function LeftNav({ posts, filteredPosts, setFilteredPosts }) {
 
+    const handleShow = () => setShow(true);
+    const [show, setShow] = useState()
     const location = useLocation()
     const [activeFilter, setActiveFilter] = useState()
 
@@ -44,9 +47,16 @@ export default function LeftNav({ posts, filteredPosts, setFilteredPosts }) {
     return (
         <>
             <Container className="d-flex flex-column scroll">
-                {isLoggedIn() ? <Link to={'/create-post'}><Button className="mb-3 create-post-button">
-                    {location.pathname.includes('communities') ? 'Post in this Community' : 'Post to a Community'}
-                </Button></Link> : <div><p style={{ fontSize: '1.2rem' }}><br /><span>Register</span> to post in a community and find someone today!</p><br /></div>}
+                {isLoggedIn() ?
+                    <>
+                        <Link to={'/create-post'}>
+                            <Button className="mb-3 create-post-button">
+                                {location.pathname.includes('communities') ? 'Post in this Community +' : 'Post to a Community +'}</Button>
+                        </Link>
+                        <Button className='mb-2 cat-nav-card interested-filter' onClick={handleShow}>Create Community +</Button>
+                        <CreateCommunity show={show} setShow={setShow} />
+                    </>
+                    : <div><p style={{ fontSize: '1.2rem' }}><br /><span>Register</span> to post in a community and find someone today!</p><br /></div>}
 
 
                 {location.pathname === '/' &&
@@ -64,6 +74,7 @@ export default function LeftNav({ posts, filteredPosts, setFilteredPosts }) {
                                     id='my-posts' onClick={filterPosts}>My Posts
                                 </Card>
                                 <Card className="mb-3"></Card>
+
                             </>
                         }
 

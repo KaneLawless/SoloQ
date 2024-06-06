@@ -1,8 +1,115 @@
 {
-  "hash": "713dd965",
+  "hash": "b7b7aedc",
   "configHash": "de508175",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "9cf775ab",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "43812f72",
+  "browserHash": "708b76cc",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "49ea174a",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "39902883",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "bbe62c03",
+      "needsInterop": false
+    },
+    "bootstrap/dist/js/bootstrap.bundle.js": {
+      "src": "../../node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+      "file": "bootstrap_dist_js_bootstrap__bundle__js.js",
+      "fileHash": "1642df0b",
+      "needsInterop": true
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "4c1842b7",
+      "needsInterop": false
+    },
+    "react-bootstrap": {
+      "src": "../../node_modules/react-bootstrap/esm/index.js",
+      "file": "react-bootstrap.js",
+      "fileHash": "981a6448",
+      "needsInterop": false
+    },
+    "jwt-decode": {
+      "src": "../../node_modules/jwt-decode/build/esm/index.js",
+      "file": "jwt-decode.js",
+      "fileHash": "b46b793e",
+      "needsInterop": false
+    },
+    "@fortawesome/react-fontawesome": {
+      "src": "../../node_modules/@fortawesome/react-fontawesome/index.es.js",
+      "file": "@fortawesome_react-fontawesome.js",
+      "fileHash": "20fba900",
+      "needsInterop": false
+    },
+    "@fortawesome/free-brands-svg-icons": {
+      "src": "../../node_modules/@fortawesome/free-brands-svg-icons/index.mjs",
+      "file": "@fortawesome_free-brands-svg-icons.js",
+      "fileHash": "99216f6b",
+      "needsInterop": false
+    },
+    "react-bootstrap/Container": {
+      "src": "../../node_modules/react-bootstrap/esm/Container.js",
+      "file": "react-bootstrap_Container.js",
+      "fileHash": "133a32e0",
+      "needsInterop": false
+    },
+    "react-bootstrap/Row": {
+      "src": "../../node_modules/react-bootstrap/esm/Row.js",
+      "file": "react-bootstrap_Row.js",
+      "fileHash": "85eb922e",
+      "needsInterop": false
+    },
+    "react-bootstrap/Col": {
+      "src": "../../node_modules/react-bootstrap/esm/Col.js",
+      "file": "react-bootstrap_Col.js",
+      "fileHash": "31a624ed",
+      "needsInterop": false
+    },
+    "react-bootstrap/Spinner": {
+      "src": "../../node_modules/react-bootstrap/esm/Spinner.js",
+      "file": "react-bootstrap_Spinner.js",
+      "fileHash": "a218744e",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-DFD3BI4H": {
+      "file": "chunk-DFD3BI4H.js"
+    },
+    "chunk-WKY7MI73": {
+      "file": "chunk-WKY7MI73.js"
+    },
+    "chunk-XU75XL4P": {
+      "file": "chunk-XU75XL4P.js"
+    },
+    "chunk-2XLOJCAW": {
+      "file": "chunk-2XLOJCAW.js"
+    },
+    "chunk-EKATUG6S": {
+      "file": "chunk-EKATUG6S.js"
+    },
+    "chunk-KB4VQC4Z": {
+      "file": "chunk-KB4VQC4Z.js"
+    },
+    "chunk-34BKBSNK": {
+      "file": "chunk-34BKBSNK.js"
+    },
+    "chunk-PMYDY72F": {
+      "file": "chunk-PMYDY72F.js"
+    },
+    "chunk-ZS7NZCD4": {
+      "file": "chunk-ZS7NZCD4.js"
+    }
+  }
 }

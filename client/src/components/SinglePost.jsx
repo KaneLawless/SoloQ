@@ -14,6 +14,7 @@ import Comment from '../../assets/comment.svg'
 import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
 import SearchInput from "./SearchInput";
+import LoadingSpinner from "./LoadingSpinner";
 
 
 export default function SinglePost({ editTitle, editText, editing, submitChanges }) {
@@ -101,10 +102,11 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
 
 
     return (
-        <Container>
-            <Row>
-                <Col><LeftNav /></Col>
-                {postData &&
+        <Container className='py-5 d-flex justify-content-center'>
+            {postData ?
+                <Row>
+                    <Col><LeftNav /></Col>
+
                     <Col className="col-6 scroll">
                         <SearchInput />
 
@@ -155,9 +157,10 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
                             </div>
                             : <p className="mb-4 px-2">Log in to post a comment</p>}
                     </Col>
-                }
-                <Col>{communityData && <RightNav community={communityData} />}</Col>
-            </Row>
+
+                    <Col>{communityData && <RightNav community={communityData} />}</Col>
+                </Row>
+                : <LoadingSpinner />}
         </Container>
     )
 }

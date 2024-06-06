@@ -2,30 +2,26 @@ import axios from "axios"
 
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { ListGroup, Row, Container, Col, Modal, Form, InputGroup, Button, Alert } from "react-bootstrap"
+import { ListGroup, Row, Container, Col} from "react-bootstrap"
 
 import LoadingSpinner from "./LoadingSpinner"
 import LeftNav from "./LeftNav"
 import RightNav from "./RightNav"
-import { getToken } from "../../lib/common"
+import CreateCommunity from "./CreateCommunity"
 
 
 export default function Search() {
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false)
     const handleShow = () => setShow(true);
-    const [commName, setCommName] = useState()
-
+    const [show, setShow] = useState()
     const params = useParams()
     const navigate = useNavigate()
 
     const [searchData, setSearchData] = useState()
     const [error, setError] = useState()
 
-    function handleChange(e) {
-        setCommName(e.target.value)
-    }
+
+
 
     function handleClick(e) {
 
@@ -57,19 +53,7 @@ export default function Search() {
         getData()
     }, [params])
 
-    async function sendCreate() {
-        try {
-            const { data } = await axios.post('/api/communities/', { name: commName }, { headers: { Authorization: `Bearer ${getToken()}` } })
-            handleClose()
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
-    function makeCommunity() {
-        setShow(true)
-        sendCreate()
-    }
 
     return (
 
@@ -93,25 +77,13 @@ export default function Search() {
                             error ? <p className="error">{error}</p> : <LoadingSpinner />
                         }
                         <button className="comment-button my-4" onClick={goBack}>Back</button>
-                        <p>Can't find the Community for you? <span className=' make-one' onClick={makeCommunity}>Make one</span></p>
+                        <p>Can't find the Community for you? <span className=' make-one' onClick={handleShow}>Make one</span></p>
                     </ListGroup>
                 </Col>
                 <Col><RightNav /></Col>
+                <CreateCommunity show={show} setShow={setShow} />
             </Row>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>New Community</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form>
-                        <InputGroup >
-                            <Form.Control placeholder="Create a community" id="search" value={commName} onChange={handleChange} />
-                            <Button variant="outline" className="search-btn" onClick={makeCommunity}>Create</Button>
 
-                        </InputGroup>
-                    </Form>
-                </Modal.Body>
-            </Modal>
         </Container>
 
     )

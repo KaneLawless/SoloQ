@@ -4,6 +4,7 @@ import RightNav from "./RightNav";
 import PostForm from "./PostForm";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function CreatePost() {
 
@@ -32,7 +33,8 @@ export default function CreatePost() {
 
     return (
         <Container className="create-post-container">
-            <Row>
+            {(communityData && categoryData) ?
+             <Row>
                 <Col></Col>
                 <Col className="col-7 mt-4">
                     <h3 className="mb-3">Make a Post</h3>
@@ -41,6 +43,7 @@ export default function CreatePost() {
 
                 <Col className="col-3">{communityData && <RightNav communities={communityData} />}</Col>
             </Row>
+            : <LoadingSpinner />}
         </Container>
     )
 }

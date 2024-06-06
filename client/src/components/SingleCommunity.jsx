@@ -6,6 +6,7 @@ import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
 import { timeAgo } from "../../lib/common";
 import SearchInput from "./SearchInput";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function SingleCommunity() {
     const params = useParams()
@@ -36,8 +37,8 @@ export default function SingleCommunity() {
     }
 
     return (
-        <Container>
-            {communityData &&
+        <Container className='d-flex justify-content-center pb-5'>
+            {communityData ?
                 <Row>
                     <Col><LeftNav /></Col>
                     <Col className="col-6 scroll">
@@ -60,7 +61,7 @@ export default function SingleCommunity() {
                     </Col>
                     <Col><RightNav communities={communities} /></Col>
                 </Row>
-            }
+                : <LoadingSpinner />}
         </Container>
     )
 }

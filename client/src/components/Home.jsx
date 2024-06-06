@@ -6,6 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
 import SearchInput from "./SearchInput";
+import LoadingSpinner from "./LoadingSpinner";
 
 
 export default function Home() {
@@ -44,8 +45,8 @@ export default function Home() {
     }
 
     return (
-        <Container className="px-5" >
-            {postData && communityData &&
+        <Container className="px-5 pb-5 d-flex justify-content-center" >
+            {(postData && communityData) ?
                 <Row>
                     <Col className="text-center ">
                         <LeftNav posts={postData} filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts} />
@@ -77,7 +78,7 @@ export default function Home() {
                         <RightNav communities={communityData} />
                     </Col>
                 </Row>
-            }
+                : <LoadingSpinner />}
         </Container>
     )
 }

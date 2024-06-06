@@ -55,6 +55,7 @@ export default function Navbar() {
         try {
             const { data } = await axios.post('/api/auth/login/', { "email": formData.email, "password": formData.password })
             setToken(data.access)
+            setError('')
             handleClose()
             navigate('/')
 
@@ -82,7 +83,6 @@ export default function Navbar() {
 
 
     async function handleContinue(e) {
-        console.log("GOT HERE")
         if (!userFound && !isSignUp) {
             console.log("submitting form")
             e.preventDefault()
