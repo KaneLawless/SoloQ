@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Modal, Form, InputGroup, Button } from "react-bootstrap";
 import axios from "axios";
 import { getToken } from "../../lib/common";
 import { useNavigate } from "react-router-dom";
-import LoadingSpinner from "./LoadingSpinner";
+
 export default function CreateCommunity({ show, setShow }) {
 
 

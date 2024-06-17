@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Form, Modal } from 'react-bootstrap';
 import Logo from '../../assets/logo-4.png'
-import LoadingSpinner from './LoadingSpinner';
 
 export default function Navbar() {
     const navigate = useNavigate()

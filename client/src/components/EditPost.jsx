@@ -5,6 +5,7 @@ import { getToken } from "../../lib/common"
 import { Container, Form } from "react-bootstrap"
 import SinglePost from "./SinglePost"
 import { jwtDecode } from "jwt-decode"
+
 export default function EditPost() {
 
     const [postData, setPostData] = useState()
@@ -18,7 +19,7 @@ export default function EditPost() {
     useEffect(() => {
         async function getData() {
             try {
-                const { data } = await axios.get(`/api/posts/${params.postId}`, { headers: { Authorization: `Bearer ${getToken()}` } })
+                const { data } = await axios.get(`/api/posts/${params.postId}/`, { headers: { Authorization: `Bearer ${getToken()}` } })
                 console.log(data)
                 setPostData(data)
                 setFormData({ title: data.title, text: data.text })

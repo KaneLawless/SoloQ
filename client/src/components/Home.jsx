@@ -22,7 +22,7 @@ export default function Home() {
     useEffect(() => {
         async function getData() {
             try {
-                const { data } = await axios.get('/api/posts')
+                const { data } = await axios.get('/api/posts/')
                 setPostData(data)
                 console.log(data)
 
@@ -51,7 +51,7 @@ export default function Home() {
                     <Col className="text-center ">
                         <LeftNav posts={postData} filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts} />
                     </Col>
-                    <Col className='col-6 text-center scroll' >
+                    <Col className=' col-6 text-center scroll' >
                         <h1>Recent Posts</h1>
                         <SearchInput />
 

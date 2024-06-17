@@ -1,9 +1,7 @@
 import axios from "axios"
-
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { ListGroup, Row, Container, Col} from "react-bootstrap"
-
 import LoadingSpinner from "./LoadingSpinner"
 import LeftNav from "./LeftNav"
 import RightNav from "./RightNav"

@@ -1,5 +1,4 @@
 import { Container, Col, Row } from "react-bootstrap";
-import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
 import PostForm from "./PostForm";
 import { useEffect, useState } from "react";
@@ -12,7 +11,6 @@ export default function CreatePost() {
     const [categoryData, setCategoryData] = useState()
 
     useEffect(() => {
-        console.log("ENTERED CRETAE POST")
         async function getData() {
             try {
                 const commRes = await axios.get('/api/communities/')

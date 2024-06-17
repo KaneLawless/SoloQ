@@ -3,9 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { Card, Col, Container, Row, Alert } from "react-bootstrap";
 import { getToken, timeAgo, isLoggedIn } from "../../lib/common";
-
 import { jwtDecode } from "jwt-decode";
-
 import InterestFilled from '../../assets/star-filled.svg'
 import InterestHollow from '../../assets/star-hollow.svg'
 import Edit from '../../assets/edit.svg'
@@ -29,8 +27,8 @@ export default function SinglePost({ editTitle, editText, editing, submitChanges
 
     async function getData() {
         try {
-            const { data } = await axios.get(`/api/posts/${params.postId}`)
-            const commData = await axios.get(`/api/communities/${data.community.id}`)
+            const { data } = await axios.get(`/api/posts/${params.postId}/`)
+            const commData = await axios.get(`/api/communities/${data.community.id}/`)
             setPostData(data)
             setCommunityData(commData.data)
             console.log(data)
